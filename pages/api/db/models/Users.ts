@@ -12,6 +12,7 @@ import {
   clientPortalCreateCustomer,
   clientPortalCreateCompany
 } from '../../graphql/mutations';
+import * as randomize from 'randomatic';
 
 const SALT_WORK_FACTOR = 10;
 
@@ -53,6 +54,16 @@ export interface IUserModel extends Model<IUserDocument> {
     refreshToken: string
   ): { token: string; refreshToken: string; user: IUserDocument };
   login(args: ILoginParams): { token: string; refreshToken: string };
+  imposeVerificationCode(phone: string): string;
+  changePasswordWithCode({
+    phone,
+    code,
+    password
+  }: {
+    phone: string;
+    code: string;
+    password: string;
+  }): string;
 }
 
 export const loadClass = () => {
@@ -100,12 +111,19 @@ export const loadClass = () => {
       this.checkPassword(password);
 
       const tEmail = (email || '').toLowerCase().trim();
-      const user = await Users.create({
-        ...doc,
-        email: tEmail,
-        // hash password
-        password: await this.generatePassword(password)
-      });
+
+      if (await Users.findOne({ email: tEmail })) {
+        throw new Error('The user is already exists');
+      }
+
+      const performCreate = async () => {
+        return Users.create({
+          ...doc,
+          email: tEmail,
+          // hash password
+          password: await this.generatePassword(password)
+        });
+      }
 
       const { companyName, firstName, lastName, type } = doc;
 
@@ -121,32 +139,40 @@ export const loadClass = () => {
         });
 
         if (company && company._id) {
+          const user = await performCreate();
+
           await Users.updateOne(
             { _id: user._id },
             { $set: { erxesCompanyId: company._id } }
           );
-        }
-      } else {
-        const customer: { _id?: string } = await sendGraphQLRequest({
-          query: clientPortalCreateCustomer,
-          name: 'clientPortalCreateCustomer',
-          variables: {
-            configId,
-            email: tEmail,
-            firstName,
-            lastName
-          }
-        });
 
-        if (customer && customer._id) {
-          await Users.updateOne(
-            { _id: user._id },
-            { $set: { erxesCustomerId: customer._id } }
-          );
+          return user._id;
         }
+
+        return;
       }
 
-      return user._id;
+      const customer: { _id?: string } = await sendGraphQLRequest({
+        query: clientPortalCreateCustomer,
+        name: 'clientPortalCreateCustomer',
+        variables: {
+          configId,
+          email: tEmail,
+          firstName,
+          lastName
+        }
+      });
+
+      if (customer && customer._id) {
+        const user = await performCreate();
+
+        await Users.updateOne(
+          { _id: user._id },
+          { $set: { erxesCustomerId: customer._id } }
+        );
+
+        return user._id;
+      }
     }
 
     public static async editProfile(_id: string, { password, ...doc }: IUser) {
@@ -277,6 +303,42 @@ export const loadClass = () => {
       return token;
     }
 
+    public static async changePasswordWithCode({
+      phone,
+      code,
+      password
+    }: {
+      phone: string;
+      code: string;
+      password: string;
+    }) {
+      const user = await Users.findOne({
+        phone,
+        verificationCode: code
+      }).lean();
+
+      if (!user) {
+        throw new Error('Wrong code');
+      }
+
+      // Password can not be empty string
+      if (password === '') {
+        throw new Error('Password can not be empty');
+      }
+
+      this.checkPassword(password);
+
+      // set new password
+      await Users.findByIdAndUpdate(
+        { _id: user._id },
+        {
+          password: await this.generatePassword(password)
+        }
+      );
+
+      return 'success';
+    }
+
     public static async createTokens(_user: IUserDocument, secret: string) {
       const user = {
         _id: _user._id,
@@ -326,11 +388,35 @@ export const loadClass = () => {
       };
     }
 
+    static generateVerificationCode() {
+      return randomize('0', 6);
+    }
+
+    public static async imposeVerificationCode(phone: string) {
+      const user = await Users.findOne({ phone });
+      const code = this.generateVerificationCode();
+      const codeExpires = Date.now() + 60000;
+
+      if (!user) {
+        throw new Error('User not found');
+      }
+
+      await Users.updateOne(
+        { _id: user._id },
+        {
+          $set: { verificationCode: code, verificationCodeExpires: codeExpires }
+        }
+      );
+
+      return code;
+    }
+
     public static async login({
       type,
       email,
       password,
-      description
+      description,
+      deviceToken
     }: ILoginParams) {
       const user = await Users.findOne({
         email: { $regex: new RegExp(`^${email}$`, 'i') },
@@ -353,6 +439,16 @@ export const loadClass = () => {
         user,
         this.getSecret()
       );
+
+      if (deviceToken) {
+        const deviceTokens: string[] = user.deviceTokens || [];
+
+        if (!deviceTokens.includes(deviceToken)) {
+          deviceTokens.push(deviceToken);
+
+          await user.update({ $set: { deviceTokens } });
+        }
+      }
 
       await Logs.createLog({
         type: 'user',

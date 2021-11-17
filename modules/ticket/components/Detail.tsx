@@ -1,17 +1,25 @@
-import React from "react";
-import { TextArea } from "../../common/form/styles";
+import React from 'react';
+import { TextArea } from '../../common/form/styles';
 import {
   TicketRow,
   TicketLabel,
   TicketContent,
   TicketComment,
   TicketDetailContent,
-  TicketFormWrapper,
-} from "../../styles/tickets";
-import { IUser } from "../../types";
-import Button from "../../common/Button";
-import Modal from "../../common/Modal";
-import dayjs from "dayjs";
+  Description,
+  CommentWrapper,
+  CreatedUser,
+  CommentContent
+} from '../../styles/tickets';
+import { IUser } from '../../types';
+import Button from '../../common/Button';
+import Modal from '../../common/Modal';
+import dayjs from 'dayjs';
+import { FormWrapper } from '../../styles/main';
+import PriorityIndicator from '../../common/PriorityIndicator';
+import Icon from '../../common/Icon';
+import Uploader from '../../common/Uploader';
+import { IAttachment } from '../../common/types';
 
 type Props = {
   item?: any;
@@ -19,7 +27,7 @@ type Props = {
   onClose: () => void;
   handleSubmit: ({
     content,
-    email,
+    email
   }: {
     content: string;
     email: string;
@@ -34,28 +42,99 @@ export default class TicketDetail extends React.Component<
     super(props);
 
     this.state = {
-      content: "",
+      content: ''
     };
   }
 
-  renderRow = (label: string, text: string) => {
-    return (
-      <TicketRow>
-        <TicketLabel>{label}</TicketLabel>
-        <TicketContent>{text}</TicketContent>
-      </TicketRow>
-    );
+  handleChange = e => {
+    this.setState({ content: e.target.value });
   };
 
-  handleChange = (e) => {
-    this.setState({ content: e.target.value });
+  onChangeAttachment = (files: IAttachment[]) => console.log(files);
+
+  onEditComment = comment => {
+    this.setState({ content: comment.content });
   };
 
   createComment = (email: string) => {
     this.props.handleSubmit({ content: this.state.content, email });
 
-    this.setState({ content: "" });
+    this.setState({ content: '' });
   };
+
+  renderContent(label, text) {
+    switch (label) {
+      case 'Priority':
+        return (
+          <>
+            <PriorityIndicator value={text} /> {text}
+          </>
+        );
+      default:
+        return text;
+    }
+  }
+
+  renderRow = (icon: string, label: string, text: string) => {
+    return (
+      <TicketRow>
+        <TicketLabel>
+          <Icon icon={icon} size={14} /> {label}
+        </TicketLabel>
+        <TicketContent>{this.renderContent(label, text)}</TicketContent>
+      </TicketRow>
+    );
+  };
+
+  renderAttachments(item) {
+    return (
+      <TicketRow>
+        <TicketLabel>
+          {' '}
+          <Icon icon="paperclip" size={14} />
+          &nbsp; Attachments
+        </TicketLabel>
+        <TicketContent>
+          <Uploader defaultFileList={[]} onChange={this.onChangeAttachment} />
+        </TicketContent>
+      </TicketRow>
+    );
+  }
+
+  renderComments(item) {
+    const comments = item.comments || [];
+
+    return (
+      <CommentWrapper>
+        {comments.map(comment => (
+          <TicketComment key={comment._id}>
+            <CreatedUser>
+              <img
+                src="https://erxes.io/static/images/team/square/mungunshagai.jpg"
+                alt="profile"
+              />
+              <div>
+                <CommentContent>
+                  <h5>Anu-ujin Bat-Ulzii</h5>
+                  <div
+                    className="comment"
+                    dangerouslySetInnerHTML={{ __html: comment.content }}
+                  />
+                </CommentContent>
+                <span>
+                  Reported {dayjs(comment.createdAt).format('YYYY-MM-DD HH:mm')}
+                </span>
+              </div>
+              <div className="actions">
+                <span onClick={() => this.onEditComment(comment)}>Edit</span>
+                <span>Delete</span>
+              </div>
+            </CreatedUser>
+          </TicketComment>
+        ))}
+      </CommentWrapper>
+    );
+  }
 
   render() {
     const currentUser = this.props.currentUser || ({} as IUser);
@@ -66,51 +145,52 @@ export default class TicketDetail extends React.Component<
       return null;
     }
 
-    const comments = item.comments || [];
-
     const content = () => (
-      <TicketFormWrapper>
+      <FormWrapper>
         <h4>{item.name}</h4>
         <TicketDetailContent>
-          {this.renderRow("Ticket name:", item.name)}
-          {this.renderRow("Requestor:", email)}
-          {this.renderRow("Priority:", item.priority)}
-          {this.renderRow("Description:", item.description)}
+          {this.renderRow('file-question-alt', 'Requestor', email)}
+          {this.renderRow('chart-growth', 'Priority', item.priority)}
+          {this.renderRow(
+            'align-left-justify',
+            'Description',
+            item.description
+          )}
+          {this.renderAttachments(item)}
 
           <TicketRow>
-            <TicketLabel>Activity:</TicketLabel>
+            <TicketLabel>
+              {' '}
+              <Icon icon="comment-1" size={14} />
+              &nbsp; Activity
+            </TicketLabel>
             <TicketContent>
               <TextArea
                 onChange={this.handleChange}
-                placeholde="comment ..."
+                placeholder="Write a comment..."
                 value={this.state.content}
               />
-
-              <Button
-                btnStyle="success"
-                size="small"
-                onClick={this.createComment.bind(this, email)}
-              >
-                Reply
-              </Button>
-
-              <br />
-              <br />
-
-              {comments.map((comment) => (
-                <TicketComment key={comment._id}>
-                  <span>
-                    {dayjs(comment.createdAt).format("YYYY-MM-DD HH:mm")}
-                  </span>
-                  <div dangerouslySetInnerHTML={{ __html: comment.content }} />
-                </TicketComment>
-              ))}
+              {this.state.content.length !== 0 && (
+                <div className="buttons">
+                  <Button
+                    btnStyle="success"
+                    size="small"
+                    icon="message"
+                    onClick={this.createComment.bind(this, email)}
+                  >
+                    Save
+                  </Button>
+                </div>
+              )}
+              {this.renderComments(item)}
             </TicketContent>
           </TicketRow>
         </TicketDetailContent>
-      </TicketFormWrapper>
+      </FormWrapper>
     );
 
-    return <Modal content={content} onClose={onClose} isOpen={item} />;
+    return (
+      <Modal content={content} onClose={onClose} isFull={true} isOpen={item} />
+    );
   }
 }

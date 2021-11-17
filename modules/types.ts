@@ -13,6 +13,14 @@ export type Ticket = {
   priority: string;
 };
 
+export type Task = {
+  stageId: string;
+  subject: string;
+  description?: string;
+  requestor: string;
+  priority: string;
+};
+
 export type Config = {
   _id?: string;
   name?: string;
@@ -70,6 +78,10 @@ export interface IKbCategory extends ICommonFields {
   authors: IUser[];
   articles: IKbArticle[];
   numOfArticles: number;
+}
+
+export interface IKbParentCategory extends IKbCategory {
+  childrens: IKbCategory[];
 }
 
 export interface IUserDetails {
@@ -144,6 +156,7 @@ export interface IKbArticle extends ICommonFields {
   summary: string;
   content: string;
   status: string;
+  categoryId?: string;
   reactionChoices?: string[];
   createdUser: IUser;
 }
@@ -159,6 +172,7 @@ export type Topic = {
   languageCode?: string;
 
   categories: IKbCategory[];
+  parentCategories: IKbParentCategory[];
   createdBy: string;
   createdDate: Date;
   modifiedBy: string;

@@ -4,10 +4,8 @@ import FormControl from "../../common/form/Control";
 import Form from "../../common/form/Form";
 import FormGroup from "../../common/form/Group";
 import { IButtonMutateProps } from "../../common/types";
-import Button from "../../common/Button";
 import { LOGIN_TYPES } from "../types";
 import Icon from "../../common/Icon";
-import Link from "next/link";
 
 type Props = {
   renderButton: (props: IButtonMutateProps) => JSX.Element;
@@ -61,10 +59,6 @@ function Login({ renderButton, hasCompany, infoText }: Props) {
             values: hasCompany ? { ...values, type } : values,
             isSubmitted,
           })}
-          <div className="auth-divider" />
-          <Button btnStyle="primary" block={true} href="/">
-            <Icon icon="left-arrow-from-left" size={15} /> &nbsp; Return to home
-          </Button>
         </FormGroup>
       </>
     );

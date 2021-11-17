@@ -1,10 +1,6 @@
 import { Config } from '../types';
-
-export const imgSrc = (src: string) => {
-  if (src.indexOf('http') === 0) return src;
-
-  return `http://localhost:3300/read-file?key=${src}`;
-};
+import { urlParser } from '../utils';
+import { getEnv } from '../../utils/configs';
 
 /**
  * Generate random string
@@ -32,7 +28,7 @@ const getSelector = (name: string) => {
   return document.querySelector(`[name='${name}']`) as any;
 };
 
-export const getValue = (name) => {
+export const getValue = name => {
   const element = getSelector(name);
 
   if (element) {
@@ -48,4 +44,19 @@ export const getConfigColor = (config: Config, key: string) => {
   }
 
   return config.styles[key];
+};
+
+/**
+ * Request to get file's URL for view and download
+ * @param {String} - value
+ * @return {String} - URL
+ */
+export const readFile = (value: string): string => {
+  if (!value || urlParser.isValidURL(value) || value.includes('/')) {
+    return value;
+  }
+
+  const { REACT_APP_MAIN_API_DOMAIN } = getEnv();
+
+  return `${REACT_APP_MAIN_API_DOMAIN}/read-file?key=${value}`;
 };

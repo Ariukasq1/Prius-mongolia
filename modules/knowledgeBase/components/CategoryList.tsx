@@ -1,14 +1,7 @@
 import React from "react";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import Link from "next/link";
-import {
-  CategoryItem,
-  CategoryIcon,
-  CategoryContent,
-  VideoTutorial,
-  Avatars,
-  CategoryListWrapper,
-} from "./styles";
-import Icon from "../../common/Icon";
+import { VideoTutorial, Avatars, CategoryListWrapper } from "./styles";
 import { Topic } from "../../types";
 
 type Props = {
@@ -46,7 +39,7 @@ class CategoryList extends React.Component<Props> {
       <Avatars>
         {cat.authors.map((author, index) => (
           <img
-            key={index}
+            key={`author-${index}`}
             alt={author.details.fullName}
             src={author.details.avatar}
           />
@@ -67,62 +60,82 @@ class CategoryList extends React.Component<Props> {
 
   renderCategories = () => {
     const { topic } = this.props;
-    const { categories } = topic;
+    const { parentCategories = [] } = topic;
 
-    if (categories) {
-      return categories.map((cat) => {
-        return (
-          <Link href={`knowledge-base/category?id=${cat._id}`} key={cat._id}>
-            <CategoryItem>
-              <CategoryIcon>
-                <Icon icon={cat.icon || "book"} />
-              </CategoryIcon>
-              <CategoryContent>
-                <h5 className="base-color">{cat.title} </h5>
+    const specialCategory = parentCategories[0];
+    const categories = parentCategories.slice(1);
+    const categoryUrl = `/knowledge-base/category`;
+
+    const detail = (cat) => {
+      return (
+        <Link href={`${categoryUrl}?id=${cat._id}`} passHref={true}>
+          <a className="d-flex flex-column align-items-center w-100">
+            <div className="icon-wrapper">
+              <i className={`icon-${cat.icon}`} />
+            </div>
+            <div className="tab-content">
+              <h5>{cat.title}</h5>
+              <div className="description">
                 <p>{cat.description}</p>
+              </div>
+            </div>
+          </a>
+        </Link>
+      );
+    };
 
-                {this.renderAuthors(cat)}
-              </CategoryContent>
-            </CategoryItem>
-          </Link>
-        );
-      });
-    }
-    return;
+    return (
+      <>
+        {specialCategory && (
+          <Container className="knowledge-base promoted mt-30" fluid="sm">
+            <div className="category-knowledge-list">
+              <h2 className="list-category-title">
+                <Link href={`${categoryUrl}?id=${specialCategory._id}`}>
+                  {specialCategory.title}
+                </Link>
+              </h2>
+              <div className="promoted-wrap">
+                {specialCategory.childrens &&
+                  specialCategory.childrens.map((cat, i) => (
+                    <Card key={`child-${i}`}>
+                      {detail(cat)}
+                      <Link href={`${categoryUrl}?id=${cat._id}`}>
+                        <a className="more">Read more</a>
+                      </Link>
+                    </Card>
+                  ))}
+              </div>
+            </div>
+          </Container>
+        )}
+
+        {categories.map((parentCat, i) => (
+          <Container className="knowledge-base" fluid="sm" key={`key-${i}`}>
+            <div className="category-knowledge-list">
+              <h2 className="list-category-title">
+                <Link href={`${categoryUrl}?id=${parentCat._id}`}>
+                  {parentCat.title}
+                </Link>
+              </h2>
+              <Row>
+                {parentCat.childrens &&
+                  parentCat.childrens.map((cat) => (
+                    <Col md={4} key={cat._id} className="category-col">
+                      <Card className="category-item">{detail(cat)}</Card>
+                    </Col>
+                  ))}
+              </Row>
+            </div>
+          </Container>
+        ))}
+      </>
+    );
   };
 
   render() {
     return (
       <CategoryListWrapper>
-        <div>{this.renderCategories()}</div>
-
-        <VideoTutorial>
-          <h4>Video tutorials</h4>
-
-          <p>
-            For those visual learners, we have a full playlist of video
-            tutorials to help you onboard. Make sure you check out the
-            <a
-              href="https://www.youtube.com/watch?v=sDzPEEBSp44&feature=youtu.be&list=PLwRYODuwm31sVRr8NjPZJIM-idMQETizz&ab_channel=erxesInc"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              &nbsp;full playlist&nbsp;
-            </a>
-            on our Youtube channel or click the button on the top left corner of
-            this video.
-          </p>
-
-          <iframe
-            width="80%"
-            height="450"
-            title="erxes-list"
-            src="https://www.youtube.com/embed/videoseries?list=PLwRYODuwm31sVRr8NjPZJIM-idMQETizz"
-            frameBorder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen={true}
-          />
-        </VideoTutorial>
+        <div className="categories-wrapper">{this.renderCategories()}</div>
       </CategoryListWrapper>
     );
   }

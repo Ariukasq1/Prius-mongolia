@@ -3,13 +3,14 @@ import { rgba } from "../styles/ecolor";
 import styled, { css } from "styled-components";
 import styledTS from "styled-components-ts";
 
-const Header = styledTS<{ color?: string; backgroundImage?: string }>(
-  styled.div
-)`
-  padding: 30px 0;
+const Header = styledTS<{
+  color?: string;
+  backgroundImage?: string;
+  headingSpacing?: boolean;
+}>(styled.div)`
+  padding: ${(props) => (props.headingSpacing ? "30px 30px 180px" : "30px 0")};
   color: ${colors.colorWhite};
   font-size: ${typography.fontSizeBody}px;
-
   background-color: ${(props) =>
     props.color ? props.color : colors.colorPrimary};
   background-image: ${(props) =>
@@ -19,6 +20,11 @@ const Header = styledTS<{ color?: string; backgroundImage?: string }>(
     font-size: 1.75rem;
     font-weight: ${typography.fontWeightLight};
     margin: 20px 0;
+  }
+
+  .modal-content {
+    background: transparent;
+    border: 0;
   }
 `;
 
@@ -113,7 +119,7 @@ const LinkItem = styledTS<{ active?: boolean }>(styled.span)`
   ${(props) =>
     props.active &&
     `
-    font-weight: 500;
+    font-weight: 600;
     opacity: 1;
 
     &:after {
@@ -148,7 +154,6 @@ const Container = styledTS<{ transparent?: boolean; shrink?: boolean }>(
   styled.div
 )`
   width: ${dimensions.wrapperWidth}%;
-
   margin: 0 auto;
 
   ${(props) =>
@@ -285,8 +290,13 @@ const Footer = styledTS<{ color?: string; backgroundImage?: string }>(
     props.color ? props.color : colors.colorPrimary};
   padding: 40px 0;
   color: ${colors.colorWhite};
-
   text-align: center;
+
+  h4 {
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
 
   p {
     color: rgba(255,255,255,.7);
@@ -298,25 +308,27 @@ const Footer = styledTS<{ color?: string; backgroundImage?: string }>(
 `;
 
 const FooterLink = styled.a`
-  display: inline-block;
-  align-items: center;
-  justify-content: center;
-  line-height: 32px;
+  width: 32px;
+  height: 32px;
   margin: 5px 5px 0px 5px;
-  vertical-align: middle;
-  transition: opacity 0.3s ease;
+  border-radius: 16px;
+  display: inline-block;
+  background: #fff;
+  transition: background 0.3s ease;
+  font-size: 14px;
+  padding: 6px;
 
   img {
-    width: 32px;
-    height: 32px;
+    width: 100%;
+    filter: contrast(0) sepia(100%) hue-rotate(0deg) brightness(0.4) saturate(0);
   }
 
   &:hover {
-    opacity: 0.8;
+    background: #eee;
   }
 `;
 
-const ModalWrapper = styledTS<{ show?: boolean }>(styled.div)`
+const ModalWrapper = styledTS<{ isFull?: boolean }>(styled.div)`
   .client-modal {
     position: fixed;
     overflow: auto;
@@ -331,7 +343,7 @@ const ModalWrapper = styledTS<{ show?: boolean }>(styled.div)`
       position: relative;
       z-index: 99;
       width: 60%;
-      max-width: 600px;
+      max-width: ${(props) => (props.isFull ? "900px" : "600px")};
       border-radius: 2px;
       margin: 100px auto;
     }
@@ -340,8 +352,8 @@ const ModalWrapper = styledTS<{ show?: boolean }>(styled.div)`
 
 const ModalClose = styled.div`
   position: absolute;
-  right: -40px;
-  top: 0;
+  right: 10px;
+  top: 20px;
   width: 30px;
   height: 30px;
   background: rgba(0, 0, 0, 0.3);
@@ -350,6 +362,69 @@ const ModalClose = styled.div`
   text-align: center;
   color: #fff;
   cursor: pointer;
+`;
+
+const HeaderWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  button {
+    border: 1px solid ${colors.colorWhite};
+    background: transparent;
+    opacity: 0.9;
+    transition: all ease 0.3s;
+
+    &:hover {
+      opacity: 1;
+      background: transparent;
+    }
+  }
+
+  > div:first-child {
+    width: 60%;
+    margin-right: ${dimensions.coreSpacing}px;
+
+    @media (max-width: 1550px) {
+      width: 45%;
+    }
+  }
+
+  .right {
+    @media (max-width: 1140px) {
+      button {
+        margin-bottom: ${dimensions.unitSpacing}px;
+      }
+    }
+  }
+`;
+
+const FormWrapper = styled.div`
+  background: ${colors.colorWhite};
+  border-radius: 5px;
+
+  h4 {
+    color: ${colors.textPrimary};
+    font-weight: 600;
+    font-size: 18px;
+    padding: 20px 40px;
+    border-radius: 5px 5px 0 0;
+    background: ${colors.bgLight};
+    border-bottom: 1px solid #eee;
+    margin: 0;
+  }
+
+  .content {
+    padding: 20px 40px;
+
+    > div:last-child {
+      margin-bottom: 10px;
+    }
+
+    .right {
+      text-align: right;
+    }
+  }
 `;
 
 export {
@@ -371,4 +446,6 @@ export {
   LinkItem,
   ModalWrapper,
   ModalClose,
+  HeaderWrapper,
+  FormWrapper,
 };

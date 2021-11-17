@@ -22,12 +22,15 @@ import { Config, IUser } from "../../types";
 import Button from "../../common/Button";
 import LoginContainer from "../../../pages/user/login";
 import RegisterContainer from "../../../pages/user/register";
+import ResetPasswordContainer from "../../user/containers/ResetPassword";
+import { Alert } from "../../utils";
 
 type Props = {
   config: Config;
   currentUser: IUser;
   logout: () => void;
   router: any;
+  headingSpacing?: boolean;
   headerBottomComponent?: React.ReactNode;
 };
 
@@ -36,21 +39,36 @@ function Header({
   currentUser,
   logout,
   router,
+  headingSpacing,
   headerBottomComponent,
 }: Props) {
   const [showlogin, setLogin] = useState(false);
   const [showregister, setRegister] = useState(false);
+  const [showResetPassword, setResetPassword] = useState(false);
 
-  const renderLink = (url: string, label: string) => {
+  const onClick = (url) => {
+    if (!currentUser && url.includes("tickets")) {
+      Alert.error("Log in first to create or manage ticket cards");
+
+      return setLogin(true);
+    }
+  };
+
+  const renderMenu = (url: string, label: string) => {
     return (
-      <LinkItem active={router.pathname === url}>
-        <Link href={url}>{label}</Link>
+      <LinkItem active={router.pathname === url} onClick={() => onClick(url)}>
+        <Link href={!currentUser && url.includes("tickets") ? "" : url}>
+          {label}
+        </Link>
       </LinkItem>
     );
   };
 
   return (
-    <Head color={getConfigColor(config, "headerColor")}>
+    <Head
+      color={getConfigColor(config, "headerColor")}
+      headingSpacing={headingSpacing}
+    >
       <Container transparent={true}>
         <HeaderTop>
           <HeaderLeft>
@@ -81,6 +99,13 @@ function Header({
                     Sign up
                   </Button>
                   <Button
+                    btnStyle="primary"
+                    uppercase={false}
+                    onClick={() => setResetPassword(true)}
+                  >
+                    Reset password
+                  </Button>
+                  <Button
                     btnStyle="warning"
                     uppercase={false}
                     onClick={() => setLogin(true)}
@@ -100,9 +125,9 @@ function Header({
             <HeaderTitle>{config.name}</HeaderTitle>
           </HeaderLogo>
           <HeaderLinks>
-            {renderLink("/", config.knowledgeBaseLabel || "Knowledge Base")}
-            {renderLink("/tasks", config.taskLabel || "Task")}
-            {renderLink("/tickets", config.ticketLabel || "Ticket")}
+            {renderMenu("/", config.knowledgeBaseLabel || "Knowledge Base")}
+            {renderMenu("/tasks", config.taskLabel || "Task")}
+            {renderMenu("/tickets", config.ticketLabel || "Ticket")}
           </HeaderLinks>
         </HeaderTop>
         <h3>{config.description}</h3>
@@ -117,6 +142,11 @@ function Header({
         content={() => <RegisterContainer />}
         onClose={() => setRegister(false)}
         isOpen={showregister}
+      />
+      <Modal
+        content={() => <ResetPasswordContainer />}
+        onClose={() => setResetPassword(false)}
+        isOpen={showResetPassword}
       />
     </Head>
   );

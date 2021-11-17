@@ -1,8 +1,7 @@
 import React from "react";
-import { SearchContainer } from "../../modules/styles/main";
+import { SearchContainer, HeaderWrapper } from "../../modules/styles/main";
 import Icon from "../../modules/common/Icon";
 import Modal from "../../modules/common/Modal";
-import { TicketHeaderWrapper } from "../../modules/styles/tickets";
 import Button from "../../modules/common/Button";
 import TicketForm from "../../modules/ticket/containers/Form";
 
@@ -72,7 +71,7 @@ export default class TicketHeader extends React.Component<Props, State> {
 
     return (
       <>
-        <TicketHeaderWrapper>
+        <HeaderWrapper>
           <SearchContainer focused={focused}>
             <Icon icon="search-1" onClick={this.onSearch} />
 
@@ -90,9 +89,6 @@ export default class TicketHeader extends React.Component<Props, State> {
             />
           </SearchContainer>
           <div className="right">
-            <Button btnStyle="primary" uppercase={false}>
-              <Icon icon="file-check" /> Check Ticket Status
-            </Button>
             <Button
               btnStyle="primary"
               uppercase={false}
@@ -101,7 +97,7 @@ export default class TicketHeader extends React.Component<Props, State> {
               <Icon icon="add" /> Submit New Ticket
             </Button>
           </div>
-        </TicketHeaderWrapper>
+        </HeaderWrapper>
         <Modal
           content={() => <TicketForm />}
           onClose={this.showModal}

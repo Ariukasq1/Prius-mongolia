@@ -6,7 +6,7 @@ import FormGroup from "../../common/form/Group";
 import Button from "../../common/Button";
 import { Ticket } from "../../types";
 import { ControlLabel } from "../../common/form";
-import { TicketFormWrapper } from "../../styles/tickets";
+import { FormWrapper } from "../../styles/main";
 
 type Props = {
   handleSubmit: (doc: Ticket) => void;
@@ -64,7 +64,7 @@ export default function TicketForm({ handleSubmit }: Props) {
   }
 
   return (
-    <TicketFormWrapper>
+    <FormWrapper>
       <h4>Add a new ticket</h4>
       <div className="content">
         {renderControl({
@@ -92,10 +92,10 @@ export default function TicketForm({ handleSubmit }: Props) {
             uppercase={false}
             icon="check-circle"
           >
-            Submit
+            Save
           </Button>
         </div>
       </div>
-    </TicketFormWrapper>
+    </FormWrapper>
   );
 }

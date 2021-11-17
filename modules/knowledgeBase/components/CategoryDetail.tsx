@@ -1,18 +1,10 @@
 import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import { Topic } from "../../types";
-import Breadcrumb from "../../common/Breadcrumb";
-import Icon from "../../common/Icon";
-import {
-  Container,
-  CategoryLeft,
-  Sidebar,
-  SidebarItem,
-  SidebarIcon,
-  SidebarContent,
-} from "./styles";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import { SidebarList } from "./styles";
 import Articles from "./ArticleList";
+import SideBar from "./SideBar";
+import SectionHeader from "../../common/SectionHeader";
 
 type Props = {
   category: any;
@@ -20,46 +12,28 @@ type Props = {
   topic: Topic;
 };
 
-function CategoryDetail({ loading, topic, category }: Props) {
-  const renderCategories = () => {
-    const categories = topic && topic.categories;
-
-    if (!categories) return;
-
-    const router = useRouter();
-    const { id } = router.query;
-
-    return categories.map((cat) => {
-      return (
-        <Link href={`/knowledge-base/category?id=${cat._id}`} key={cat._id}>
-          <SidebarItem active={id === cat._id}>
-            <SidebarIcon>
-              <Icon icon={cat.icon || "book"} />
-            </SidebarIcon>
-            <SidebarContent>
-              <h6>{cat.title}</h6>
-              <p>{cat.description}</p>
-            </SidebarContent>
-          </SidebarItem>
-        </Link>
-      );
-    });
-  };
-
+function CategoryDetail({ topic, category }: Props) {
   return (
-    <>
-      <Breadcrumb title={category.title} />
-      <Container>
-        <CategoryLeft>
-          {loading ? " Loading ..." : <Articles articles={category.articles} />}
-        </CategoryLeft>
+    <Container className="knowledge-base">
+      <SectionHeader
+        categories={topic.parentCategories}
+        selectedCat={category}
+      />
 
-        <Sidebar>
-          <h6>Categories</h6>
-          {renderCategories()}
-        </Sidebar>
-      </Container>
-    </>
+      <Row className="category-detail">
+        <Col md={3}>
+          <SidebarList>
+            <SideBar
+              parentCategories={topic.parentCategories}
+              category={category}
+            />
+          </SidebarList>
+        </Col>
+        <Col md={9}>
+          <Articles articles={category.articles} />
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
