@@ -1,9 +1,7 @@
-import React from "react";
-import Footer from "./Footer";
-import { Container, MainContent } from "../../styles/main";
-import Header from "../containers/Header";
-import { Config, IUser } from "../../types";
-import { getConfigColor } from "../../common/utils";
+import React from 'react';
+import Footer from './Footer';
+import Header from '../containers/Header';
+import { Config, IUser } from '../../types';
 
 type Props = {
   topic: any;
@@ -14,26 +12,12 @@ type Props = {
   headingSpacing?: boolean;
 };
 
-function Layout({
-  config,
-  topic,
-  children,
-  currentUser,
-  headingSpacing,
-  headerBottomComponent,
-}: Props) {
+function Layout({ config, topic, children, currentUser, headingSpacing, headerBottomComponent }: Props) {
   return (
     <>
-      <Header
-        config={config}
-        currentUser={currentUser}
-        headingSpacing={headingSpacing}
-        headerBottomComponent={headerBottomComponent}
-      />
-      <MainContent baseColor={getConfigColor(config, "baseColor")}>
-        <Container>{children({ config, topic })}</Container>
-      </MainContent>
-      <Footer config={config} />
+      <Header config={config} currentUser={currentUser} headingSpacing={headingSpacing} headerBottomComponent={headerBottomComponent} />
+      <div>{children({ config, topic })}</div>
+      <Footer />
     </>
   );
 }

@@ -2,7 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.5;
   color: #444;
 }
@@ -58,10 +58,14 @@ hr {
   margin-bottom: 10px;
 }
 
-.flex-between {
+.flex {
   display: flex;
+}
+.flex-center {
+  justify-content: center;
+}
+.flex-v-center {
   align-items: center;
-  justify-content: space-between;
 }
 
 @keyframes searchIcon {

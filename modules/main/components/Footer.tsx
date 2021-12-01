@@ -1,42 +1,109 @@
-import React from "react";
-import { getConfigColor } from "../../common/utils";
-import {
-  Container,
-  Footer as StyledFooter,
-  FooterLink,
-} from "../../styles/main";
-import { Config } from "../../types";
-
-type Props = {
-  config: Config;
-};
-
-function Footer(props: Props) {
-  const renderLink = (url: string, imgSrc: string, iconName: string) => {
-    return (
-      <FooterLink href={url} target="_blank" rel="noopener noreferrer">
-        <img src={`/static/logos/${imgSrc}`} alt={iconName} />
-      </FooterLink>
-    );
-  };
-
+import react from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import Image from 'next/image';
+import Link from 'next/link';
+const Footer = () => {
   return (
-    <StyledFooter color={getConfigColor(props.config, "footerColor")}>
-      <Container transparent={true}>
-        <h4>Community</h4>
-        <p>
-          Still have questions? Start a discussion, browse solutions, and get
-          tips from erxes experts.
-        </p>
-
-        <div>
-          {renderLink("https://fb.erxes.io", "fb-icon.png", "facebook")}
-          {renderLink("https://github.com/erxes", "github.svg", "github")}
-          {renderLink("https://twitter.com/erxeshq", "tw-icon.svg", "twitter")}
-        </div>
+    <footer>
+      <Container>
+        <Row>
+          <Col xs={12} lg={3} md={6}>
+            <Image className="footer-logo" alt="logo" src="/images/logo.png" width={215} height={85} />
+            <div className="contact">
+              <ul>
+                <li className="flex flex-v-center">
+                  <i className="fa-solid fa-location-dot"></i> <span>БГД -16 р хороо Туулын-17, “Prius center” төв байр</span>
+                </li>
+                <li className="flex flex-v-center">
+                  <i className="fa-solid fa-envelope-open"></i> <a href="mail:info@priuscenter.mn">info@priuscenter.mn</a>
+                </li>
+                <li className="flex flex-v-center">
+                  <i className="fa-solid fa-globe"></i>{' '}
+                  <a href="https://www.priuscenter.mn" target="_blank">
+                    www.priuscenter.mn
+                  </a>
+                </li>
+              </ul>
+              <div className="social flex">
+                <a target="_blank" href="https://fb.com">
+                  <i className="fa-brands fa-facebook"></i>
+                </a>
+                <a target="_blank" href="https://fb.com">
+                  <i className="fa-brands fa-instagram"></i>
+                </a>
+                <a target="_blank" href="https://fb.com">
+                  <i className="fa-brands fa-youtube"></i>
+                </a>
+                <a target="_blank" href="https://fb.com">
+                  <i className="fa-brands fa-linkedin"></i>
+                </a>
+              </div>
+            </div>
+          </Col>
+          <Col xs={12} lg={3} md={6}>
+            <div className="footer-menu">
+              <h5>Бидний тухай</h5>
+              <ul>
+                <li>
+                  <Link href="/intro">Танилцуулга</Link>
+                </li>
+                <li>
+                  <Link href="/intro">Танилцуулга</Link>
+                </li>
+                <li>
+                  <Link href="/intro">Танилцуулга</Link>
+                </li>
+                <li>
+                  <Link href="/intro">Танилцуулга</Link>
+                </li>
+              </ul>
+            </div>
+          </Col>
+          <Col xs={12} lg={3} md={6}>
+            <div className="footer-menu">
+              <h5>Бидний тухай</h5>
+              <ul>
+                <li>
+                  <Link href="/intro">Танилцуулга</Link>
+                </li>
+                <li>
+                  <Link href="/intro">Танилцуулга</Link>
+                </li>
+                <li>
+                  <Link href="/intro">Танилцуулга</Link>
+                </li>
+                <li>
+                  <Link href="/intro">Танилцуулга</Link>
+                </li>
+              </ul>
+            </div>
+          </Col>
+          <Col xs={12} lg={3} md={6}>
+            <div className="footer-menu">
+              <h5>Бидний тухай</h5>
+              <ul>
+                <li>
+                  <Link href="/intro">Танилцуулга</Link>
+                </li>
+                <li>
+                  <Link href="/intro">Танилцуулга</Link>
+                </li>
+                <li>
+                  <Link href="/intro">Танилцуулга</Link>
+                </li>
+                <li>
+                  <Link href="/intro">Танилцуулга</Link>
+                </li>
+              </ul>
+            </div>
+          </Col>
+        </Row>
       </Container>
-    </StyledFooter>
+      <div className="copyright">
+        <span>Copyright 2021 Prius Center</span>
+      </div>
+    </footer>
   );
-}
+};
 
 export default Footer;
