@@ -1,6 +1,6 @@
 import React from 'react';
-import CategoriesContainer from '../modules/knowledgeBase/containers/CategoryList';
+import Home from '../modules/home/containers/Home';
 
-export default function Home() {
-  return <CategoriesContainer />;
+export default function HomePage() {
+  return <Home />;
 }

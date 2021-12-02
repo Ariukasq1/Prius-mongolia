@@ -5,9 +5,9 @@ const TopBar = () => {
     <div className="top-bar flex">
       <div className="menu">
         <Link href="/">Хайбрид зарын платформ</Link>
-        <Link href="/">Хайбрид зарын платформ</Link>
-        <Link href="/">Хайбрид зарын платформ</Link>
-        <Link href="/">Хайбрид зарын платформ</Link>
+        <Link href="/">Лояалти хөтөлбөр</Link>
+        <Link href="/">Засвар үйлчилгээний захиалга</Link>
+        <Link href="/">Баталгаат сэлбэг худалдаа</Link>
       </div>
       <div className="top-contact">
         <span className="time">09:00 - 17:30</span>

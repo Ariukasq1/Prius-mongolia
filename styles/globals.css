@@ -68,6 +68,11 @@ hr {
   align-items: center;
 }
 
+.btn.focus,
+.btn:focus {
+  box-shadow: none !important;
+}
+
 @keyframes searchIcon {
   0% {
     transform: translateX(10px);
