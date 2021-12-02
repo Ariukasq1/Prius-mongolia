@@ -1,13 +1,17 @@
 import React from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
-import Link from 'next/link';
-import { Topic } from '../../types';
 import Banner from './Banner';
+import ProductsRow from './ProductsRow';
 type Props = {};
 
 class Home extends React.Component<Props> {
   render() {
-    return <Banner />;
+    return (
+      <>
+        <Banner />
+        <ProductsRow title="Баталгаат сэлбэг худалдаа" />
+        <ProductsRow title="Танд хэрэгтэй зар" type="user" />
+      </>
+    );
   }
 }
 

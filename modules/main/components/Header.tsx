@@ -3,10 +3,12 @@ import TopBar from './TopBar';
 import Image from 'next/image';
 import { Button } from 'react-bootstrap';
 import Link from 'next/link';
+import FloatingMenu from './FloatingMenu';
 const Header = () => {
   const [user, setUser] = useState(true);
   return (
     <header>
+      <FloatingMenu />
       <TopBar />
       <div className="main-bar">
         <div className="logo center main-col">

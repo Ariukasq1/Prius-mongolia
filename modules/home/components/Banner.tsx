@@ -16,6 +16,9 @@ class Banner extends React.Component<Props> {
                   <h4>Засвар үйлчилгээний захиалга</h4>
                   <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.</p>
                 </div>
+                <Link href="/">
+                  <a className="read-more">Дэлгэрэнгүй</a>
+                </Link>
               </div>
               <Row>
                 <Col xs={6} sm={6} lg={6}>
@@ -23,6 +26,11 @@ class Banner extends React.Component<Props> {
                     <div className="caption">
                       <h4>Лояалти хөтөлбөр</h4>
                     </div>
+                    <Link href="/">
+                      <a className="read-more">
+                        <i className="fa-solid fa-angle-right"></i>
+                      </a>
+                    </Link>
                   </div>
                 </Col>
                 <Col xs={6} sm={6} lg={6}>
@@ -30,6 +38,11 @@ class Banner extends React.Component<Props> {
                     <div className="caption">
                       <h4>Лояалти хөтөлбөр</h4>
                     </div>
+                    <Link href="/">
+                      <a className="read-more">
+                        <i className="fa-solid fa-angle-right"></i>
+                      </a>
+                    </Link>
                   </div>
                 </Col>
               </Row>
@@ -39,6 +52,11 @@ class Banner extends React.Component<Props> {
                 <div className="caption">
                   <h4>Лояалти хөтөлбөр</h4>
                 </div>
+                <Link href="/">
+                  <a className="read-more">
+                    <i className="fa-solid fa-angle-right"></i>
+                  </a>
+                </Link>
               </div>
             </Col>
           </Row>
