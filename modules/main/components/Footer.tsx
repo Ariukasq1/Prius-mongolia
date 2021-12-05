@@ -54,7 +54,7 @@ const Footer = () => {
                   <Link href="/intro">Танилцуулга</Link>
                 </li>
                 <li>
-                  <Link href="/intro">Танилцуулга</Link>
+                  <Link href="/about/branches">Салбарууд</Link>
                 </li>
               </ul>
             </div>
@@ -83,7 +83,7 @@ const Footer = () => {
               <h5>Бидний тухай</h5>
               <ul>
                 <li>
-                  <Link href="/intro">Танилцуулга</Link>
+                  <Link href="/about/faq">FAQ</Link>
                 </li>
                 <li>
                   <Link href="/intro">Танилцуулга</Link>

@@ -12,7 +12,9 @@ const Header = () => {
       <TopBar />
       <div className="main-bar">
         <div className="logo center main-col">
-          <Image className="header-logo" alt="logo" src="/images/logo.png" width={215} height={85} />
+          <Link href="/">
+            <Image className="header-logo" alt="logo" src="/images/logo.png" width={215} height={85} />
+          </Link>
         </div>
         <div className="search main-col center"></div>
         <div className="loyalty center main-col">

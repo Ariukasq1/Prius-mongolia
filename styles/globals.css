@@ -73,6 +73,12 @@ hr {
   box-shadow: none !important;
 }
 
+.thumbnail {
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+
 @keyframes searchIcon {
   0% {
     transform: translateX(10px);

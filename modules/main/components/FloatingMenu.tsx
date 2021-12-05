@@ -11,9 +11,6 @@ const FloatingMenu = () => {
         <i className="fa-brands fa-youtube"></i>
       </a>
       <a target="_blank" href="https://fb.com">
-        <i className="fa-brands fa-linkedin"></i>
-      </a>
-      <a target="_blank" href="https://fb.com">
         <i className="fa-regular fa-clock"></i>
       </a>
       <a target="_blank" href="https://fb.com">
