@@ -3,7 +3,7 @@ import { mutations } from "../graphql";
 import Register from "../components/Register";
 import { IButtonMutateProps } from "../../common/types";
 import ButtonMutate from "../../common/ButtonMutate";
-import { getEnv } from "../../../utils/configs";
+import { getEnv } from "../../../../utils/configs";
 
 function RegisterContainer() {
   const { REACT_APP_HAS_COMPANY } = getEnv();

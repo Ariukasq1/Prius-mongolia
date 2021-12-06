@@ -1,6 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import React, { useContext } from "react";
-import { ApiApolloClientContext } from "../../ApiContext";
+import { ApiApolloClientContext } from "../../../ApiContext";
 import Item from "../components/Item";
 import Spinner from "../../common/Spinner";
 

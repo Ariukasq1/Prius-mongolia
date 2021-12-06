@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { ApiApolloClientContext } from "./ApiContext";
-import * as queries from "./knowledgeBase/graphql/queries";
+import * as queries from "./clientPortal/knowledgeBase/graphql/queries";
 import {
   Config,
   ConfigQueryResponse,
@@ -9,8 +9,8 @@ import {
   TopicQueryResponse,
   UserQueryResponse,
 } from "./clientPortal/types";
-import { currentUser } from "./user/graphql/queries";
-import { clientPortalGetConfig } from "./main/graphql/queries";
+import { currentUser } from "./clientPortal/user/graphql/queries";
+import { clientPortalGetConfig } from "./clientPortal/main/graphql/queries";
 import { getEnv } from "../utils/configs";
 
 const AppContext = createContext({});

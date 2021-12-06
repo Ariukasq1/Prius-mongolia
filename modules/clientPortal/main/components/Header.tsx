@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { withRouter } from "next/router";
 import React, { useState } from "react";
-import { USER_LOGIN_TYPES } from "../../../pages/api/db/utils";
+import { USER_LOGIN_TYPES } from "../../../../pages/api/db/utils";
 import Icon from "../../common/Icon";
 import Modal from "../../common/Modal";
 import { getConfigColor } from "../../common/utils";
@@ -20,8 +20,8 @@ import {
 } from "../../styles/main";
 import { Config, IUser } from "../../types";
 import Button from "../../common/Button";
-import LoginContainer from "../../../pages/user/login";
-import RegisterContainer from "../../../pages/user/register";
+import LoginContainer from "../../../../pages/user/login";
+import RegisterContainer from "../../../../pages/user/register";
 import ResetPasswordContainer from "../../user/containers/ResetPassword";
 import { Alert } from "../../utils";
 

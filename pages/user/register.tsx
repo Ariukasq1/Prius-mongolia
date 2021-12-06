@@ -1,1 +1,1 @@
-export { default } from '../../modules/user/containers/Register';
+export { default } from "../../modules/clientPortal/user/containers/Register";

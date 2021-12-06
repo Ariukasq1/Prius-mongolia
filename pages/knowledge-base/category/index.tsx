@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
-import CategoryDetail from "../../../modules/knowledgeBase/containers/CategoryDetail";
-import Layout from "../../../modules/main/containers/Layout";
+import CategoryDetail from "../../../modules/clientPortal/knowledgeBase/containers/CategoryDetail";
+import Layout from "../../../modules/clientPortal/main/containers/Layout";
 import { Store } from "../../../modules/clientPortal/types";
 
 export default function Category() {

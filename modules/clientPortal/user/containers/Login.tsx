@@ -3,7 +3,7 @@ import { mutations } from "../graphql";
 import Login from "../components/Login";
 import { IButtonMutateProps } from "../../common/types";
 import ButtonMutate from "../../common/ButtonMutate";
-import { getEnv } from "../../../utils/configs";
+import { getEnv } from "../../../../utils/configs";
 import { detect } from "detect-browser";
 
 type Props = {

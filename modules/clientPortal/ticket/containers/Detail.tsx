@@ -52,7 +52,7 @@ const createTicketComment = `
 function DetailContainer({ _id, ...props }: Props) {
   const apiClient = useContext(ApiApolloClientContext);
 
-  const { data = {} } = useQuery(gql(clientPortalGetTicket), {
+  const { data = {} as any } = useQuery(gql(clientPortalGetTicket), {
     variables: { _id },
     client: apiClient,
     skip: !_id,

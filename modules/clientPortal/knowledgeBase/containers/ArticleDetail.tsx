@@ -1,9 +1,9 @@
 import { gql, useQuery } from "@apollo/client";
 import React, { useContext } from "react";
-import { ApiApolloClientContext } from "../../ApiContext";
+import { ApiApolloClientContext } from "../../../ApiContext";
 import ArticleDetail from "../components/ArticleDetail";
 import { articleDetailQuery, categoryDetailQuery } from "../graphql/queries";
-import { AppConsumer } from "../../appContext";
+import { AppConsumer } from "../../../appContext";
 import { Store } from "../../types";
 
 type Props = {

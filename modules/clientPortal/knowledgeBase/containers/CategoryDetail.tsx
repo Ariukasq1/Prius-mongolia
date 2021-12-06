@@ -1,6 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import React, { useContext } from "react";
-import { ApiApolloClientContext } from "../../ApiContext";
+import { ApiApolloClientContext } from "../../../ApiContext";
 import { Topic } from "../../types";
 import CategoryDetail from "../components/CategoryDetail";
 import { categoryDetailQuery } from "../graphql/queries";

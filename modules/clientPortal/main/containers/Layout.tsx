@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import DumbLayout from "../components/Layout";
-import AppProvider, { AppConsumer } from "../../appContext";
+import AppProvider, { AppConsumer } from "../../../appContext";
 import { Store } from "../../types";
 
 type Props = {

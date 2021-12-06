@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function Index() {
-  return <div>Hello, erxes!</div>;
+  return <div>Hello, erxes !</div>;
 }

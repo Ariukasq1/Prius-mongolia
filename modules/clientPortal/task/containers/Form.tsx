@@ -1,9 +1,9 @@
 import { gql, useMutation, useQuery } from "@apollo/client";
 import React, { useContext } from "react";
-import { ApiApolloClientContext } from "../../ApiContext";
+import { ApiApolloClientContext } from "../../../ApiContext";
 import { Config, IUser, Store, Task } from "../../types";
 import Form from "../components/Form";
-import { AppConsumer } from "../../appContext";
+import { AppConsumer } from "../../../appContext";
 import { Alert } from "../../utils";
 
 type Props = {
@@ -64,7 +64,7 @@ function FormContainer({ config = {}, currentUser, ...props }: Props) {
     createTask({
       variables: {
         ...doc,
-        type: 'task',
+        type: "task",
         stageId: config.taskStageId,
         email: currentUser.email,
         priority: "Critical", // TODO: Add select in Form

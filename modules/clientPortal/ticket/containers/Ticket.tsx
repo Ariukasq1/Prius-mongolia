@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import React, { useContext } from "react";
-import { ApiApolloClientContext } from "../../ApiContext";
-import { AppConsumer } from "../../appContext";
+import { ApiApolloClientContext } from "../../../ApiContext";
+import { AppConsumer } from "../../../appContext";
 import { IUser, Store } from "../../types";
 import Ticket from "../components/Ticket";
 
@@ -25,7 +25,7 @@ const clientPortalTickets = `
 function TicketContainer({ currentUser, ...props }: Props) {
   const apiClient = useContext(ApiApolloClientContext);
 
-  const { loading, data = {} } = useQuery(gql(clientPortalTickets), {
+  const { loading, data = {} as any } = useQuery(gql(clientPortalTickets), {
     variables: { email: (currentUser || {}).email },
     client: apiClient,
     skip: !currentUser,

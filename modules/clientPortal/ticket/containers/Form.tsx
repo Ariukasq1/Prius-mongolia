@@ -1,9 +1,9 @@
 import { gql, useMutation } from "@apollo/client";
 import React, { useContext } from "react";
-import { ApiApolloClientContext } from "../../ApiContext";
+import { ApiApolloClientContext } from "../../../ApiContext";
 import { Config, IUser, Ticket, Store } from "../../types";
 import Form from "../components/Form";
-import { AppConsumer } from "../../appContext";
+import { AppConsumer } from "../../../appContext";
 
 type Props = {
   config: Config;
@@ -43,7 +43,7 @@ function FormContainer({ config = {}, currentUser, ...props }: Props) {
     createTicket({
       variables: {
         ...doc,
-        type: 'ticket',
+        type: "ticket",
         stageId: config.ticketStageId,
         email: currentUser.email,
         priority: "Critical", // TODO: Add select in Form
