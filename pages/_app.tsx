@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
-import 'react-select-plus/dist/react-select-plus.css';
-import '../styles/globals.css';
-import 'erxes-icon/css/erxes.min.css';
+import React from "react";
+import "react-select-plus/dist/react-select-plus.css";
+import "../public/styles/globals.css";
+import "erxes-icon/css/erxes.min.css";
 
-import { ApolloProvider } from '@apollo/client';
-import withApolloClient from './lib/withApolloClient';
-import { ApiApolloClientContext } from '../modules/ApiContext';
+import { ApolloProvider } from "@apollo/client";
+import withApolloClient from "./lib/withApolloClient";
+import { ApiApolloClientContext } from "../modules/ApiContext";
 
 type Props = {
   apolloClient: any;
@@ -20,7 +20,7 @@ function MyApp({
   pageProps,
   apolloClient,
   apiClient,
-  router
+  router,
 }: Props) {
   return (
     <ApiApolloClientContext.Provider value={apiClient}>
