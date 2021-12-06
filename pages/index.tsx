@@ -1,6 +1,5 @@
 import React from "react";
-import CategoriesContainer from "../modules/knowledgeBase/containers/CategoryList";
 
-export default function Home() {
-  return <CategoriesContainer />;
+export default function Index() {
+  return <div>Hello, erxes!</div>;
 }
