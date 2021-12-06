@@ -2,11 +2,11 @@ import React from "react";
 import {
   SearchContainer,
   HeaderWrapper,
-} from "../../modules/clientPortal/styles/main";
-import Icon from "../../modules/clientPortal/common/Icon";
-import Modal from "../../modules/clientPortal/common/Modal";
-import Button from "../../modules/clientPortal/common/Button";
-import TicketForm from "../../modules/clientPortal/ticket/containers/Form";
+} from "../../../modules/clientPortal/styles/main";
+import Icon from "../../../modules/clientPortal/common/Icon";
+import Modal from "../../../modules/clientPortal/common/Modal";
+import Button from "../../../modules/clientPortal/common/Button";
+import TicketForm from "../../../modules/clientPortal/ticket/containers/Form";
 
 type Props = {};
 

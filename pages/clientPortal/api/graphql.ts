@@ -1,9 +1,9 @@
-import { ApolloServer } from 'apollo-server-micro';
-import resolvers from './resolvers';
-import typeDefs from './schemas';
-import { init } from './db/connection';
-import cookies from '../../utils/cookies';
-import { userMiddleware } from './auth';
+import { ApolloServer } from "apollo-server-micro";
+import resolvers from "./resolvers";
+import typeDefs from "./schemas";
+import { init } from "./db/connection";
+import cookies from "../../../utils/cookies";
+import { userMiddleware } from "./auth";
 
 init();
 
@@ -44,6 +44,6 @@ export const config = {
   },
 };
 
-const handler = apolloServer.createHandler({ path: '/api/graphql' });
+const handler = apolloServer.createHandler({ path: "/api/graphql" });
 
 export default cookies(handler);
