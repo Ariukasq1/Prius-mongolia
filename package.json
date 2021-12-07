@@ -16,7 +16,7 @@
   },
   "scripts": {
     "dev": "node server.js",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "format": "prettier --single-quote --write '@(pages)/**/*.ts' && prettier --single-quote --write '@(modules)/**/*.@(ts|tsx|json|css)'",
     "precommit": "lint-staged",

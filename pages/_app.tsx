@@ -1,6 +1,6 @@
 import React from "react";
 import "react-select-plus/dist/react-select-plus.css";
-import "../public/styles/globals.css";
+import "../styles/globals.css";
 
 import { ApolloProvider } from "@apollo/client";
 import withApolloClient from "./clientPortal/lib/withApolloClient";
