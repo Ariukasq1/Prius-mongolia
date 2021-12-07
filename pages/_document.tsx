@@ -1,5 +1,5 @@
-import { ServerStyleSheet } from "styled-components";
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import { ServerStyleSheet } from 'styled-components';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -9,8 +9,7 @@ export default class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: (App) => (props) =>
-            sheet.collectStyles(<App {...props} />),
+          enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
         });
 
       const initialProps = await Document.getInitialProps(ctx);
@@ -34,10 +33,7 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta property="og:site_name" content="Erxes client portal" />
-          <meta
-            name="keywords"
-            content="Erxes client portal erxes.io erxes.org mongolia"
-          />
+          <meta name="keywords" content="Erxes client portal erxes.io erxes.org mongolia" />
 
           <link href="/static/favicon.png" rel="shortcut icon" />
           <link
@@ -46,9 +42,15 @@ export default class MyDocument extends Document {
             integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
             crossOrigin="anonymous"
           />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&amp;display=swap"
             rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+            integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+            crossOrigin="anonymous"
+            referrerPolicy="no-referrer"
           />
 
           {this.props.styles}

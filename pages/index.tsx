@@ -1,10 +1,19 @@
-import React from "react";
-import { getAllPosts, getPagesCount, getPaginatedPosts } from "../lib/posts";
+import React from 'react';
+import Banner from '../components/Banner';
+import ProductsRow from '../components/ProductsRow';
+import { getAllPosts, getPagesCount, getPaginatedPosts } from '../lib/posts';
+import Layout from '../components/layout/Layout';
 
 export default function Index({ posts }) {
-  console.log("posts:", posts);
+  console.log('posts:', posts);
 
-  return <div>Hello, erxes !</div>;
+  return (
+    <Layout>
+      <Banner />
+      <ProductsRow title="Баталгаат сэлбэг худалдаа" />
+      <ProductsRow title="Танд хэрэгтэй зар" type="user" />
+    </Layout>
+  );
 }
 
 export async function getStaticProps({ params = {} as any } = {}) {
@@ -14,7 +23,7 @@ export async function getStaticProps({ params = {} as any } = {}) {
       posts,
       pagination: {
         ...pagination,
-        basePath: "/posts",
+        basePath: '/posts',
       },
     },
   };
