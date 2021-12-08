@@ -1,5 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+import Icon from "../modules/clientPortal/common/Icon";
 
 const ErrorContainer = styled.div`
   position: relative;
@@ -23,7 +24,11 @@ function Error({ statusCode }) {
   return (
     <ErrorContainer>
       <Text>
-        <p>{statusCode ? `An error ${statusCode} occurred on server` : 'An error occurred on client'}</p>
+        <p>
+          {statusCode
+            ? `An error ${statusCode} occurred on server`
+            : "An error occurred on client"}
+        </p>
 
         <br />
 
