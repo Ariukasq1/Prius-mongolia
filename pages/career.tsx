@@ -17,7 +17,7 @@ const Career = ({ posts, page }) => {
 
   const renderItem = (post) => {
     return (
-      <Card>
+      <Card key={post.id}>
         <Card.Header>
           <Row className="flex flex-v-center">
             <Col md={6}>

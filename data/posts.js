@@ -122,6 +122,14 @@ export const QUERY_POSTS_BY_CATEGORY_ID = gql`
             number
             address
           }
+          branches {
+            address
+            workingDays
+            openingHour
+            closingHour
+            facebook
+            instagram
+          }
           categories {
             edges {
               node {
