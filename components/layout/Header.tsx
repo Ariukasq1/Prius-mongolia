@@ -1,9 +1,9 @@
-import react, { useState } from "react";
-import TopBar from "./TopBar";
-import Image from "next/image";
-import { Button } from "react-bootstrap";
-import Link from "next/link";
-import FloatingMenu from "./FloatingMenu";
+import react, { useState } from 'react';
+import TopBar from './TopBar';
+import Image from 'next/image';
+import { Button } from 'react-bootstrap';
+import Link from 'next/link';
+import FloatingMenu from './FloatingMenu';
 const Header = () => {
   const [user, setUser] = useState(true);
 
@@ -14,13 +14,9 @@ const Header = () => {
       <div className="main-bar">
         <div className="logo center main-col">
           <Link href="/">
-            <Image
-              className="header-logo"
-              alt="logo"
-              src="/images/logo.png"
-              width={215}
-              height={85}
-            />
+            <a>
+              <Image className="header-logo" alt="logo" src="/images/logo.png" width={215} height={85} />
+            </a>
           </Link>
         </div>
         <div className="search main-col center" />

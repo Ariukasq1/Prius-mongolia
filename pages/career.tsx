@@ -2,7 +2,7 @@ import react, { useState } from 'react';
 import { Button, Row, Col, Card, Container, Accordion, ButtonToolbar, useAccordionToggle } from 'react-bootstrap';
 import Layout from '../components/layout/Layout';
 import { getPaginatedPosts } from '../lib/posts';
-import { getPageByID } from '../lib/page';
+import { getPageBySlug } from '../lib/page';
 import EmptyState from '../components/common/EmptyState';
 const Career = ({ posts, page }) => {
   const CustomToggle = ({ children, eventKey }) => {
@@ -80,8 +80,8 @@ const Career = ({ posts, page }) => {
 export default Career;
 
 export async function getStaticProps({ params = {} as any } = {}) {
-  const { posts, pagination } = await getPaginatedPosts(params && params.page, 2);
-  const { page } = await getPageByID(12);
+  const { posts, pagination } = await getPaginatedPosts(params && params.page, 'open-vacancies');
+  const { page } = await getPageBySlug('open-vacancies');
   return {
     props: {
       posts,

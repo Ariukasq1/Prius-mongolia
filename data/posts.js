@@ -100,9 +100,9 @@ export const QUERY_POST_BY_SLUG = gql`
   }
 `;
 
-export const QUERY_POSTS_BY_CATEGORY_ID = gql`
-  query PostsByCategoryId($categoryId: Int!) {
-    posts(where: { categoryId: $categoryId, hasPassword: false }) {
+export const QUERY_POSTS_BY_CATEGORY_SLUG = gql`
+  query PostsByCategoryId($categorySlug: String!) {
+    posts(where: { categoryName: $categorySlug, hasPassword: false }) {
       edges {
         node {
           author {
@@ -121,6 +121,9 @@ export const QUERY_POSTS_BY_CATEGORY_ID = gql`
           career {
             number
             address
+          }
+          banner {
+            customLink
           }
           branches {
             address
@@ -252,9 +255,9 @@ export const QUERY_POST_PER_PAGE = gql`
   }
 `;
 
-export const QUERY_PAGE_BY_DATABASEID = gql`
-  query PageByID($id: ID!) {
-    page(id: $id, idType: DATABASE_ID) {
+export const QUERY_PAGE_BY_SLUG = gql`
+  query PageByID($slug: ID!) {
+    page(id: $slug, idType: URI) {
       author {
         node {
           avatar {

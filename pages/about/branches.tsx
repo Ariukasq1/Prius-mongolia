@@ -2,7 +2,7 @@ import react, { useState, useEffect } from 'react';
 import { Button, Row, Col, Container, ButtonToolbar } from 'react-bootstrap';
 import Layout from '../../components/layout/Layout';
 import { getPaginatedPosts } from '../../lib/posts';
-import { getPageByID } from '../../lib/page';
+import { getPageBySlug } from '../../lib/page';
 import EmptyState from '../../components/common/EmptyState';
 const Branches = ({ posts, page }) => {
   const [map, setMap] = useState(false);
@@ -85,8 +85,8 @@ const Branches = ({ posts, page }) => {
 export default Branches;
 
 export async function getStaticProps({ params = {} as any } = {}) {
-  const { posts, pagination } = await getPaginatedPosts(params && params.page, 4);
-  const { page } = await getPageByID(41);
+  const { posts, pagination } = await getPaginatedPosts(params && params.page, 'branches');
+  const { page } = await getPageBySlug('branches');
   return {
     props: {
       posts,
