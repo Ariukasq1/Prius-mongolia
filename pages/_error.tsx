@@ -32,9 +32,7 @@ function Error({ statusCode }) {
 
         <br />
 
-        <a href="/">
-          <Icon icon="arrow-left" /> Home
-        </a>
+        <a href="/">Home</a>
       </Text>
     </ErrorContainer>
   );

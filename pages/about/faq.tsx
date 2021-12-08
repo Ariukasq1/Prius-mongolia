@@ -1,7 +1,7 @@
-import react, { useState } from 'react';
-import { Button, Row, Col, Container, Accordion } from 'react-bootstrap';
-import Link from 'next/link';
-import Layout from '../../components/layout/Layout';
+import react, { useState } from "react";
+import { Button, Row, Col, Container, Accordion } from "react-bootstrap";
+import Link from "next/link";
+import Layout from "../../components/layout/Layout";
 const Faq = (props) => {
   const [open, setOpen] = useState(false);
   console.log(open);
@@ -26,15 +26,18 @@ const Faq = (props) => {
           <div className="branches-head">
             <h5>FAQ</h5>
             <p>
-              Өдгөө бид 7 салбар 220 гаруй ажилчидтайгаар Улаанбаатар хотын 5 дүүрэгт үйл ажиллагаагаа эрхлэн явуулж байгаагаас гадна дуудлагын засвар
-              үйлчилгээ нэвтрүүлж{' '}
+              Өдгөө бид 7 салбар 220 гаруй ажилчидтайгаар Улаанбаатар хотын 5
+              дүүрэгт үйл ажиллагаагаа эрхлэн явуулж байгаагаас гадна дуудлагын
+              засвар үйлчилгээ нэвтрүүлж{" "}
             </p>
           </div>
           <div className="branches-body">
-            <Accordion>{/* {renderItem()}
+            <Accordion>
+              {/* {renderItem()}
               {renderItem()}
               {renderItem()}
-              {renderItem()} */}</Accordion>
+              {renderItem()} */}
+            </Accordion>
           </div>
         </Container>
       </div>

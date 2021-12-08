@@ -1,11 +1,11 @@
-import React from 'react';
-import Banner from '../components/Banner';
-import ProductsRow from '../components/ProductsRow';
-import { getAllPosts, getPagesCount, getPaginatedPosts } from '../lib/posts';
-import Layout from '../components/layout/Layout';
+import React from "react";
+import Banner from "../components/Banner";
+import ProductsRow from "../components/ProductsRow";
+import { getAllPosts, getPagesCount, getPaginatedPosts } from "../lib/posts";
+import Layout from "../components/layout/Layout";
 
-export default function Index({ posts }) {
-  // console.log('posts:', posts);
+export default function Index(props) {
+  console.log("posts:", props);
 
   return (
     <Layout title="Нүүр хуудас">

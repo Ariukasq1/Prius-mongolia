@@ -1,31 +1,51 @@
-import { Tooltip, OverlayTrigger, Button } from 'react-bootstrap';
+import { Tooltip, OverlayTrigger, Button } from "react-bootstrap";
 
 const FloatingMenu = () => {
   return (
     <div className="floating-menu">
-      <OverlayTrigger key="left" placement="left" overlay={<Tooltip id={`tooltip-left`}>Facebook</Tooltip>}>
+      <OverlayTrigger
+        key="facebook"
+        placement="left"
+        overlay={<Tooltip id={`tooltip-left`}>Facebook</Tooltip>}
+      >
         <a target="_blank" href="https://fb.com">
-          <i className="fa-brands fa-facebook"></i>
+          <i className="fa-brands fa-facebook" />
         </a>
       </OverlayTrigger>
-      <OverlayTrigger key="left" placement="left" overlay={<Tooltip id={`tooltip-left`}>Instagram</Tooltip>}>
+      <OverlayTrigger
+        key="instagram"
+        placement="left"
+        overlay={<Tooltip id={`tooltip-left`}>Instagram</Tooltip>}
+      >
         <a target="_blank" href="https://fb.com">
-          <i className="fa-brands fa-instagram"></i>
+          <i className="fa-brands fa-instagram" />
         </a>
       </OverlayTrigger>
-      <OverlayTrigger key="left" placement="left" overlay={<Tooltip id={`tooltip-left`}>Youtube</Tooltip>}>
+      <OverlayTrigger
+        key="youtube"
+        placement="left"
+        overlay={<Tooltip id={`tooltip-left`}>Youtube</Tooltip>}
+      >
         <a target="_blank" href="https://fb.com">
-          <i className="fa-brands fa-youtube"></i>
+          <i className="fa-brands fa-youtube" />
         </a>
       </OverlayTrigger>
-      <OverlayTrigger key="left" placement="left" overlay={<Tooltip id={`tooltip-left`}>Цаг захиалга</Tooltip>}>
+      <OverlayTrigger
+        key="time"
+        placement="left"
+        overlay={<Tooltip id={`tooltip-left`}>Цаг захиалга</Tooltip>}
+      >
         <a target="_blank" href="https://fb.com">
-          <i className="fa-regular fa-clock"></i>
+          <i className="fa-regular fa-clock" />
         </a>
       </OverlayTrigger>
-      <OverlayTrigger key="left" placement="left" overlay={<Tooltip id={`tooltip-left`}>Дуудлага өгөх</Tooltip>}>
+      <OverlayTrigger
+        key="call"
+        placement="left"
+        overlay={<Tooltip id={`tooltip-left`}>Дуудлага өгөх</Tooltip>}
+      >
         <a target="_blank" href="https://fb.com">
-          <i className="fa-solid fa-phone"></i>
+          <i className="fa-solid fa-phone" />
         </a>
       </OverlayTrigger>
     </div>

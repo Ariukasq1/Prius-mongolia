@@ -1,31 +1,21 @@
-import { colors, typography } from "../../styles";
-import styled from "styled-components";
-import styledTS from "styled-components-ts";
+// import { colors, typography } from '../../styles';
+import styled from 'styled-components';
+import styledTS from 'styled-components-ts';
 
-const silverGrey = "#6c718b";
+const silverGrey = '#6c718b';
 
-const Header = styledTS<{ color?: string; backgroundImage?: string }>(
-  styled.div
-)`
+const Header = styledTS<{ color?: string; backgroundImage?: string }>(styled.div)`
   padding: 30px;
-  color: ${colors.colorWhite};
-  font-size: ${typography.fontSizeBody};
-
-  background-color: ${(props) =>
-    props.color ? props.color : colors.colorWhite};
-  background-image: ${(props) =>
-    props.backgroundImage && `url(${props.backgroundImage})`};
+  background-image: ${(props) => props.backgroundImage && `url(${props.backgroundImage})`};
 
   h3 {
     font-size: 1.75rem;
-    font-weight: ${typography.fontWeightLight};
     padding: 20px 0;
   }
 `;
 
 const CategoryItem = styled.div`
   display: flex;
-  background-color: ${colors.colorWhite};
   margin-bottom: 16px;
   padding: 24px;
   border: 0;
@@ -52,14 +42,11 @@ const CategoryIcon = styled.div`
 
 const CategoryContent = styledTS<{ color?: string }>(styled.div)`
   h5 {
-    color: ${(props) => props.color || colors.colorSecondary};
-    font-weight: ${typography.fontWeightMedium};
     margin: 0 0 2px;
     font-size: 18px;
   }
 
   p {
-    color: ${colors.colorCoreGray};
     margin: 5px 0px 11px;
     text-decoration: none;
     display: block;
@@ -73,8 +60,6 @@ const VideoTutorial = styled.div`
   margin-top: 50px;
 
   h4 {
-    font-size: ${typography.fontSizeHeading5}px;
-    font-weight: ${typography.fontWeightMedium};
   }
 
   p {
@@ -82,7 +67,6 @@ const VideoTutorial = styled.div`
     margin-bottom: 30px;
 
     a {
-      color: ${colors.colorCoreBlue};
     }
   }
 `;
@@ -225,7 +209,6 @@ const ArticleWrapper = styled.div`
   padding: 50px 80px;
   border: 0;
   padding: 1.5rem;
-  background: ${colors.colorWhite};
   box-shadow: 0px 0 15px -10px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   transition: 0.4s;
@@ -470,7 +453,7 @@ const CategoryListWrapper = styled.div`
             border-radius: 0;
 
             &::after {
-              content: "";
+              content: '';
               position: absolute;
               display: inline-block;
               width: 160px;
@@ -495,7 +478,7 @@ const CategoryListWrapper = styled.div`
       @media only screen and (max-width: 1080px) {
         .card {
           &::after {
-            content: "";
+            content: '';
             position: absolute;
             display: inline-block;
             width: 27vw;
@@ -616,8 +599,7 @@ const Feedback = styled.div`
       }
 
       &.active img {
-        box-shadow: 0 3px 8px rgba(101, 105, 223, 0.5),
-          0 3px 8px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 3px 8px rgba(101, 105, 223, 0.5), 0 3px 8px rgba(0, 0, 0, 0.15);
       }
 
       img {
@@ -652,7 +634,7 @@ const PageAnchor = styled.div`
     height: 100%;
 
     &::before {
-      content: "";
+      content: '';
       height: 100%;
       border-left: 2px solid #d6d6d6;
       position: absolute;
@@ -671,7 +653,7 @@ const PageAnchor = styled.div`
       }
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         left: -20px;
         height: 100%;

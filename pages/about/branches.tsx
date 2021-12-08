@@ -64,10 +64,10 @@ const Branches = ({ posts, page }) => {
               <Col xs={12} md={5}>
                 <ButtonToolbar>
                   <Button variant="primary">
-                    <i className="fa-solid fa-list"></i> Жагсаалтаар харах
+                    <i className="fa-solid fa-list" /> Жагсаалтаар харах
                   </Button>
                   <Button variant="outline-primary">
-                    <i className="fa-solid fa-map"></i> Газрын зураг
+                    <i className="fa-solid fa-map" /> Газрын зураг
                   </Button>
                 </ButtonToolbar>
               </Col>

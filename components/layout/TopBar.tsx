@@ -1,5 +1,6 @@
-import react from 'react';
-import Link from 'next/link';
+import react from "react";
+import Link from "next/link";
+
 const TopBar = () => {
   return (
     <div className="top-bar flex">
@@ -12,7 +13,7 @@ const TopBar = () => {
       <div className="top-contact">
         <span className="time">09:00 - 17:30</span>
         <span className="call">
-          <i className="fa-solid fa-headset"></i> 7011 3800
+          <i className="fa-solid fa-headset" /> 7011 3800
         </span>
       </div>
     </div>

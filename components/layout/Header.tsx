@@ -1,11 +1,12 @@
-import react, { useState } from 'react';
-import TopBar from './TopBar';
-import Image from 'next/image';
-import { Button } from 'react-bootstrap';
-import Link from 'next/link';
-import FloatingMenu from './FloatingMenu';
+import react, { useState } from "react";
+import TopBar from "./TopBar";
+import Image from "next/image";
+import { Button } from "react-bootstrap";
+import Link from "next/link";
+import FloatingMenu from "./FloatingMenu";
 const Header = () => {
   const [user, setUser] = useState(true);
+
   return (
     <header>
       <FloatingMenu />
@@ -13,10 +14,16 @@ const Header = () => {
       <div className="main-bar">
         <div className="logo center main-col">
           <Link href="/">
-            <Image className="header-logo" alt="logo" src="/images/logo.png" width={215} height={85} />
+            <Image
+              className="header-logo"
+              alt="logo"
+              src="/images/logo.png"
+              width={215}
+              height={85}
+            />
           </Link>
         </div>
-        <div className="search main-col center"></div>
+        <div className="search main-col center" />
         <div className="loyalty center main-col">
           <Link href="/loyalty">
             <a>
@@ -36,7 +43,7 @@ const Header = () => {
         </div>
         <div className="cart center main-col ">
           <Button className="transparent">
-            <i className="fa-solid fa-cart-shopping"></i>
+            <i className="fa-solid fa-cart-shopping" />
           </Button>
         </div>
       </div>

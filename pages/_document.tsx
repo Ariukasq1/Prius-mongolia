@@ -52,7 +52,6 @@ export default class MyDocument extends Document {
             crossOrigin="anonymous"
             referrerPolicy="no-referrer"
           />
-
           {this.props.styles}
           <script src="/static/js/env.js" />
           <script src="/static/js/main.js" />
