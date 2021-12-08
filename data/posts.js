@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 export const QUERY_ALL_POSTS = gql`
   query AllPosts {
@@ -118,6 +118,10 @@ export const QUERY_POSTS_BY_CATEGORY_ID = gql`
             }
           }
           id
+          career {
+            number
+            address
+          }
           categories {
             edges {
               node {
@@ -236,6 +240,42 @@ export const QUERY_POST_PER_PAGE = gql`
   query PostPerPage {
     allSettings {
       readingSettingsPostsPerPage
+    }
+  }
+`;
+
+export const QUERY_PAGE_BY_DATABASEID = gql`
+  query PageByID($id: ID!) {
+    page(id: $id, idType: DATABASE_ID) {
+      author {
+        node {
+          avatar {
+            height
+            url
+            width
+          }
+          id
+          name
+          slug
+        }
+      }
+      id
+      content
+      date
+      featuredImage {
+        node {
+          altText
+          caption
+          sourceUrl
+          srcSet
+          sizes
+          id
+        }
+      }
+      modified
+      databaseId
+      title
+      slug
     }
   }
 `;

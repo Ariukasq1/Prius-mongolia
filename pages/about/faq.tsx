@@ -20,7 +20,7 @@ const Faq = (props) => {
   // };
 
   return (
-    <Layout>
+    <Layout title="faq">
       <div className="branches-page faqs-page">
         <Container>
           <div className="branches-head">

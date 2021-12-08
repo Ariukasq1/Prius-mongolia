@@ -5,10 +5,10 @@ import { getAllPosts, getPagesCount, getPaginatedPosts } from '../lib/posts';
 import Layout from '../components/layout/Layout';
 
 export default function Index({ posts }) {
-  console.log('posts:', posts);
+  // console.log('posts:', posts);
 
   return (
-    <Layout>
+    <Layout title="Нүүр хуудас">
       <Banner />
       <ProductsRow title="Баталгаат сэлбэг худалдаа" />
       <ProductsRow title="Танд хэрэгтэй зар" type="user" />
@@ -16,29 +16,29 @@ export default function Index({ posts }) {
   );
 }
 
-export async function getStaticProps({ params = {} as any } = {}) {
-  const { posts, pagination } = await getPaginatedPosts(params && params.page);
-  return {
-    props: {
-      posts,
-      pagination: {
-        ...pagination,
-        basePath: '/posts',
-      },
-    },
-  };
-}
+// export async function getStaticProps({ params = {} as any } = {}) {
+//   const { posts, pagination } = await getPaginatedPosts(params && params.page);
+//   return {
+//     props: {
+//       posts,
+//       pagination: {
+//         ...pagination,
+//         basePath: '/posts',
+//       },
+//     },
+//   };
+// }
 
-export async function getStaticPaths() {
-  const { posts } = await getAllPosts();
-  const pagesCount = await getPagesCount(posts);
+// export async function getStaticPaths() {
+//   const { posts } = await getAllPosts();
+//   const pagesCount = await getPagesCount(posts);
 
-  const paths = [...new Array(pagesCount)].map((_, i) => {
-    return { params: { page: String(i + 1) } };
-  });
+//   const paths = [...new Array(pagesCount)].map((_, i) => {
+//     return { params: { page: String(i + 1) } };
+//   });
 
-  return {
-    paths,
-    fallback: false,
-  };
-}
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// }

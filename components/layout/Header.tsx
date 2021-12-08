@@ -27,15 +27,15 @@ const Header = () => {
         </div>
         <div className="user center main-col">
           {user ? (
-            <Button>
+            <Button className="transparent">
               <span>Сайн байна уу?</span> Хэргэлэгч
             </Button>
           ) : (
-            <Button>Нэвтрэх</Button>
+            <Button className="transparent">Нэвтрэх</Button>
           )}
         </div>
         <div className="cart center main-col ">
-          <Button>
+          <Button className="transparent">
             <i className="fa-solid fa-cart-shopping"></i>
           </Button>
         </div>

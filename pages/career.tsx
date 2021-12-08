@@ -1,13 +1,10 @@
 import react, { useState } from 'react';
-import Image from 'next/image';
 import { Button, Row, Col, Card, Container, Accordion, ButtonToolbar, useAccordionToggle } from 'react-bootstrap';
-// import { useAccordionButton } from 'react-bootstrap/AccordionButton';
-import Link from 'next/link';
 import Layout from '../components/layout/Layout';
-const Faq = (props) => {
-  const [open, setOpen] = useState(false);
-  console.log(open);
-
+import { getPaginatedPosts } from '../lib/posts';
+import { getPageByID } from '../lib/page';
+import EmptyState from '../components/common/EmptyState';
+const Career = ({ posts, page }) => {
   const CustomToggle = ({ children, eventKey }) => {
     const decoratedOnClick = useAccordionToggle(eventKey);
 
@@ -18,27 +15,27 @@ const Faq = (props) => {
     );
   };
 
-  const renderItem = () => {
+  const renderItem = (post) => {
     return (
       <Card>
         <Card.Header>
-          <Row>
+          <Row className="flex flex-v-center">
             <Col md={6}>
               <CustomToggle eventKey="0">
-                <h5>Үйлчилгээний ажилтан ажилд авна</h5>
+                <h5>{post.title}</h5>
                 <span>
-                  <i className="fa-solid fa-location-dot"></i> 95020011, 95020033
+                  <i className="fa-solid fa-location-dot"></i> {post.career.address}
                 </span>
                 <span>
-                  <i className="fa-solid fa-phone"></i> 95020011, 95020033
+                  <i className="fa-solid fa-phone"></i> {post.career.number}
                 </span>
               </CustomToggle>
             </Col>
             <Col md={6}>
               <div className="actions">
-                <ButtonToolbar>
-                  <Button variant="light">
-                    Share <i className="fa-brands fa-facebook"></i>
+                <ButtonToolbar className="slim">
+                  <Button className="transparent" variant="link">
+                    Хувaaлцах <i className="fa-brands fa-facebook"></i>
                   </Button>
                   <Button variant="outline-primary">Анкет татах</Button>
                   <Button>Анкет бөглөх</Button>
@@ -48,30 +45,31 @@ const Faq = (props) => {
           </Row>
         </Card.Header>
         <Accordion.Collapse eventKey="0">
-          <Card.Body>Hello! I'm the body</Card.Body>
+          <Card.Body>
+            <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
+          </Card.Body>
         </Accordion.Collapse>
       </Card>
     );
   };
 
   return (
-    <Layout>
+    <Layout title="Ажлын байр">
       <div className="page career-page">
         <Container>
           <div className="branches-head">
-            <h5>FAQ</h5>
-            <p>
-              Өдгөө бид 7 салбар 220 гаруй ажилчидтайгаар Улаанбаатар хотын 5 дүүрэгт үйл ажиллагаагаа эрхлэн явуулж байгаагаас гадна дуудлагын засвар
-              үйлчилгээ нэвтрүүлж{' '}
-            </p>
+            {page && (
+              <div className="branches-page">
+                <h5>{page.title}</h5>
+                <div dangerouslySetInnerHTML={{ __html: page.content }} />
+              </div>
+            )}
+            <div className="flex branches-action">
+              <h6>Нийт {posts.length} ажлын байр байна.</h6>
+            </div>
           </div>
           <div className="branches-body">
-            <Accordion>
-              {renderItem()}
-              {renderItem()}
-              {renderItem()}
-              {renderItem()}
-            </Accordion>
+            <Accordion>{posts && posts.length ? posts.map((post) => renderItem(post)) : <EmptyState title="Хоосон байна." />}</Accordion>
           </div>
         </Container>
       </div>
@@ -79,4 +77,19 @@ const Faq = (props) => {
   );
 };
 
-export default Faq;
+export default Career;
+
+export async function getStaticProps({ params = {} as any } = {}) {
+  const { posts, pagination } = await getPaginatedPosts(params && params.page, 2);
+  const { page } = await getPageByID(12);
+  return {
+    props: {
+      posts,
+      page,
+      pagination: {
+        ...pagination,
+        basePath: '/posts',
+      },
+    },
+  };
+}
