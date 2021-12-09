@@ -4,7 +4,7 @@ import Link from "next/link";
 import Layout from "../../components/layout/Layout";
 const Faq = (props) => {
   const [open, setOpen] = useState(false);
-  console.log(open);
+
   // const renderItem = () => {
   //   return (
   //     <Accordion.Item eventKey="0">
