@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import TopBar from "./TopBar";
-import Image from "next/image";
-import Modal from "../common/Modal";
-import Button from "react-bootstrap/Button";
-import Link from "next/link";
-import FloatingMenu from "./FloatingMenu";
+import React, { useState } from 'react';
+import TopBar from './TopBar';
+import Image from 'next/image';
+import Modal from '../common/Modal';
+import Button from 'react-bootstrap/Button';
+import Link from 'next/link';
+import FloatingMenu from './FloatingMenu';
 
 const Header = () => {
   const [user, setUser] = useState(false);
@@ -18,13 +18,7 @@ const Header = () => {
         <div className="logo center main-col">
           <Link href="/">
             <a>
-              <Image
-                className="header-logo"
-                alt="logo"
-                src="/images/logo.png"
-                width={215}
-                height={85}
-              />
+              <Image className="header-logo" alt="logo" src="/images/logo.png" width={215} height={85} />
             </a>
           </Link>
         </div>
@@ -44,14 +38,16 @@ const Header = () => {
             </Button>
           ) : (
             <>
-              <Button
-                className="transparent"
-                onClick={() => setModalShow(!modalShow)}
-              >
+              <Button className="transparent" onClick={() => setModalShow(!modalShow)}>
                 Нэвтрэх
               </Button>
               <Modal
-                content={() => <div>hii</div>}
+                content={() => (
+                  <div>
+                    hii
+                    <p style={{ textAlign: 'right' }}>hi2</p>
+                  </div>
+                )}
                 onHide={() => setModalShow(!modalShow)}
                 show={modalShow}
               />

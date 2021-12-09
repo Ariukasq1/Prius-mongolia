@@ -63,10 +63,10 @@ const Branches = ({ posts, page }) => {
               </Col>
               <Col xs={12} md={5}>
                 <ButtonToolbar>
-                  <Button variant="primary">
+                  <Button variant={map ? 'outline-primary' : 'primary'} onClick={() => setMap(false)}>
                     <i className="fa-solid fa-list" /> Жагсаалтаар харах
                   </Button>
-                  <Button variant="outline-primary">
+                  <Button onClick={() => setMap(true)} variant={map ? 'primary' : 'outline-primary'}>
                     <i className="fa-solid fa-map" /> Газрын зураг
                   </Button>
                 </ButtonToolbar>
@@ -74,7 +74,7 @@ const Branches = ({ posts, page }) => {
             </Row>
           </div>
           <div className="branches-body">
-            {posts && posts.length ? posts.map((post) => renderBranch(post)) : <EmptyState title="Хоосон байна." />}
+            {map ? 'Google map' : posts && posts.length ? posts.map((post) => renderBranch(post)) : <EmptyState title="Хоосон байна." />}
           </div>
         </Container>
       </div>
