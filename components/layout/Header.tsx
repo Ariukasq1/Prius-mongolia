@@ -5,6 +5,7 @@ import Modal from "../common/Modal";
 import Button from "react-bootstrap/Button";
 import Link from "next/link";
 import FloatingMenu from "./FloatingMenu";
+import LoginContainer from "../../modules/clientPortal/user/containers/Login";
 
 const Header = () => {
   const [user, setUser] = useState(false);
@@ -51,7 +52,7 @@ const Header = () => {
                 Нэвтрэх
               </Button>
               <Modal
-                content={() => <div>hii</div>}
+                content={() => <LoginContainer title="Нэвтрэх" />}
                 onHide={() => setModalShow(!modalShow)}
                 show={modalShow}
               />

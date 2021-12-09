@@ -10,22 +10,20 @@ const Input = styled.input`
 `;
 
 const LoginFormWrapper = styled.div`
-  width: 520px;
-  margin: 50px auto 0;
-  background: ${colors.colorWhite};
-  color: #666;
-  padding: 40px ${dimensions.headerSpacing}px;
-  border-radius: ${dimensions.unitSpacing + 5}px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-
   h2 {
     text-align: center;
-    font-weight: 500;
-    font-size: 22px;
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-weight: 600;
   }
 
   input {
     font-size: 14px;
+    background: #f5f5f5;
+    padding: 20px 24px;
+    border-radius: 8px;
+    border: 0;
+    height: 55px;
   }
 
   .info {
@@ -84,6 +82,42 @@ const LoginFormWrapper = styled.div`
       transition: all ease 0.3s;
       color: #1e87f0;
     }
+  }
+
+  .forgot-password {
+    text-align: right;
+    display: block;
+    font-size: 14px;
+    color: #747474;
+    margin-top: 5px;
+    transition: all ease 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      color: #009300;
+    }
+  }
+
+  form > span {
+    margin-bottom: 30px;
+    text-align: center;
+    display: block;
+    color: #7a7a7a;
+    font-size: 15px;
+
+    a {
+      color: #009300;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+
+  button {
+    min-width: 210px;
+    font-weight: 600;
+    box-shadow: 0px 8px 20px rgba(0, 147, 0, 0.24),
+      0px 2px 6px rgba(0, 147, 0, 0.16), 0px 0px 1px rgba(0, 147, 0, 0.08);
+    margin: 0;
   }
 `;
 

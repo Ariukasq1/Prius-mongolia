@@ -1,23 +1,23 @@
-import { gql, useMutation } from '@apollo/client';
-import React from 'react';
-import ResetPassword from '../components/ResetPassword';
-import mutations from '../graphql/mutations';
-import { IButtonMutateProps } from '../../common/types';
-import ButtonMutate from '../../common/ButtonMutate';
+import { gql, useMutation } from "@apollo/client";
+import React from "react";
+import ResetPassword from "../components/ResetPassword";
+import mutations from "../graphql/mutations";
+import { IButtonMutateProps } from "../../common/types";
+import ButtonMutate from "../../common/ButtonMutate";
 
-function ResetPasswordContainer() {
+function ResetPasswordContainer(formProps) {
   const [getVerificationCode] = useMutation(gql(mutations.getCode));
 
   const handleCode = (phone: string) => {
     getVerificationCode({
-      variables: { phone }
-    }).then(data => {
-      console.log('sent verification code');
+      variables: { phone },
+    }).then((data) => {
+      console.log("sent verification code");
     });
   };
 
   const renderButton = ({ values, isSubmitted }: IButtonMutateProps) => {
-    const callbackResponse = () => (window.location.href = '/');
+    const callbackResponse = () => (window.location.href = "/");
 
     return (
       <ButtonMutate
@@ -27,19 +27,18 @@ function ResetPasswordContainer() {
         isSubmitted={isSubmitted}
         type="submit"
         btnStyle="warning"
-        successMessage="Succesfully"
-        block={true}
-        uppercase={true}
+        successMessage="Амжилттай илгээлээ"
         icon={false}
       >
-        Reset password
+        Нууц үг сэргээх
       </ButtonMutate>
     );
   };
 
   const updatedProps = {
+    formProps,
     handleCode,
-    renderButton
+    renderButton,
   };
 
   return <ResetPassword {...updatedProps} />;

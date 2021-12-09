@@ -53,7 +53,7 @@ const Banner = ({ data }) => {
                     }
                   >
                     <a className="read-more">
-                      <i className="fa-solid fa-angle-right"></i>
+                      <i className="fa-solid fa-angle-right" />
                     </a>
                   </Link>
                 </div>
@@ -76,7 +76,7 @@ const Banner = ({ data }) => {
                     }
                   >
                     <a className="read-more white">
-                      <i className="fa-solid fa-angle-right"></i>
+                      <i className="fa-solid fa-angle-right" />
                     </a>
                   </Link>
                 </div>
@@ -102,7 +102,7 @@ const Banner = ({ data }) => {
                 }
               >
                 <a className="read-more white">
-                  <i className="fa-solid fa-angle-right"></i>
+                  <i className="fa-solid fa-angle-right" />
                 </a>
               </Link>
             </div>
