@@ -2,7 +2,6 @@ import React from 'react';
 import { getAllPosts, getPostBySlug } from '../../lib/posts';
 import Layout from '../../components/layout/Layout';
 import { Container } from 'react-bootstrap';
-import Image from 'next/image';
 
 export default function Index({ post }) {
   return (

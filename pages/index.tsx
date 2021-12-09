@@ -4,9 +4,9 @@ import ProductsRow from '../components/ProductsRow';
 import { getAllPosts, getPagesCount, getPaginatedPosts } from '../lib/posts';
 import Layout from '../components/layout/Layout';
 
-export default function Index({ posts }) {
+export default function Index({ posts, menus }) {
   return (
-    <Layout title="Нүүр хуудас">
+    <Layout menus={menus} title="Нүүр хуудас">
       <Banner data={posts} />
       <ProductsRow title="Баталгаат сэлбэг худалдаа" />
       <ProductsRow title="Танд хэрэгтэй зар" type="user" />

@@ -1,5 +1,9 @@
-import react from "react";
-import Link from "next/link";
+import react from 'react';
+import Link from 'next/link';
+
+type Props = {
+  menu: any;
+};
 
 const TopBar = () => {
   return (

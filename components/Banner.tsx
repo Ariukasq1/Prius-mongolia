@@ -6,7 +6,6 @@ type Props = {
   data: any;
 };
 const Banner = ({ data }) => {
-  console.log(data[0]);
   return (
     <div className="banner">
       <Container>

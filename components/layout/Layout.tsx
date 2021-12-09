@@ -5,9 +5,11 @@ import Head from 'next/head';
 type Props = {
   children: any;
   title: string;
+  menus?: any;
 };
 
-function Layout({ children, title }: Props) {
+function Layout({ children, title, menus }: Props) {
+  console.log(menus);
   return (
     <>
       <Head>
