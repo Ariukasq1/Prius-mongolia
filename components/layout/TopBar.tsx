@@ -10,7 +10,7 @@ const TopBar = () => {
     <div className="top-bar flex">
       <div className="menu">
         <Link href="/">Хайбрид зарын платформ</Link>
-        <Link href="/">Лояалти хөтөлбөр</Link>
+        <Link href="/loyalty/dashboard">Лояалти хөтөлбөр</Link>
         <Link href="/booking/select-branch">Засвар үйлчилгээний захиалга</Link>
         <Link href="/">Баталгаат сэлбэг худалдаа</Link>
       </div>

@@ -25,7 +25,7 @@ const Header = () => {
         </div>
         <div className="search main-col center" />
         <div className="loyalty center main-col">
-          <Link href="/loyalty">
+          <Link href="/loyalty/dashboard">
             <a>
               <img src="/images/icons/hand.svg" />
               Лояалти хөтөлбөр

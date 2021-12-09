@@ -262,6 +262,14 @@
     }
   }
 }
+.plain-page {
+  margin: 2rem 0;
+}
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1400px;
+  }
+}
 
 @media (min-width: 576px) {
   .modal-sm {
