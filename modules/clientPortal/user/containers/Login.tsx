@@ -8,6 +8,7 @@ import { detect } from "detect-browser";
 
 type Props = {
   infoText?: string;
+  title?: string;
 };
 
 function LoginContainer(props: Props) {
@@ -27,13 +28,11 @@ function LoginContainer(props: Props) {
         }}
         callback={callbackResponse}
         isSubmitted={isSubmitted}
-        block={true}
-        uppercase={true}
         icon={false}
         btnStyle="warning"
         type="submit"
       >
-        Sign in
+        {props.title ? props.title : "Sign in"}
       </ButtonMutate>
     );
   };

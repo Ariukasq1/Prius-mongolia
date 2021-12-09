@@ -5,7 +5,7 @@ import { IButtonMutateProps } from "../../common/types";
 import ButtonMutate from "../../common/ButtonMutate";
 import { getEnv } from "../../../../utils/configs";
 
-function RegisterContainer() {
+function RegisterContainer(props) {
   const { REACT_APP_HAS_COMPANY } = getEnv();
 
   const renderButton = ({ values, isSubmitted }: IButtonMutateProps) => {
@@ -19,17 +19,16 @@ function RegisterContainer() {
         isSubmitted={isSubmitted}
         type="submit"
         btnStyle="warning"
-        successMessage="Succesfully registered!"
-        block={true}
-        uppercase={true}
+        successMessage="Амжилттай бүртгэгдлээ!"
         icon={false}
       >
-        Register
+        Бүртгүүлэх
       </ButtonMutate>
     );
   };
 
   const updatedProps = {
+    ...props,
     hasCompany: REACT_APP_HAS_COMPANY === "true",
     renderButton,
   };
