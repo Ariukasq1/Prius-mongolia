@@ -1,10 +1,10 @@
-import * as dotenv from 'dotenv';
-import mongoose from 'mongoose';
-import { debugDb } from '../../../debugger';
+import * as dotenv from "dotenv";
+import mongoose from "mongoose";
+import { debugDb } from "../../../../debugger";
 
 dotenv.config();
 
-const { NODE_ENV, MONGO_URL = '' } = process.env;
+const { NODE_ENV, MONGO_URL = "" } = process.env;
 
 export let client;
 
@@ -18,15 +18,15 @@ export const connectionOptions = {
 (mongoose.Promise as any) = global.Promise;
 
 mongoose.connection
-  .on('connected', () => {
-    if (NODE_ENV !== 'test') {
+  .on("connected", () => {
+    if (NODE_ENV !== "test") {
       debugDb(`Connected to the database: ${MONGO_URL}`);
     }
   })
-  .on('disconnected', () => {
+  .on("disconnected", () => {
     debugDb(`Disconnected from the database: ${MONGO_URL}`);
   })
-  .on('error', (error) => {
+  .on("error", (error) => {
     debugDb(`Database connection error: ${MONGO_URL}`, error);
   });
 
