@@ -1,7 +1,7 @@
-import React from 'react';
-import Footer from './Footer';
-import Header from './Header';
-import Head from 'next/head';
+import React from "react";
+import Footer from "./Footer";
+import Header from "./Header";
+import Head from "next/head";
 type Props = {
   children: any;
   title: string;
@@ -9,7 +9,6 @@ type Props = {
 };
 
 function Layout({ children, title, menus }: Props) {
-  console.log(menus);
   return (
     <>
       <Head>
