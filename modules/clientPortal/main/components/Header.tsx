@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { withRouter } from "next/router";
 import React, { useState } from "react";
-import { USER_LOGIN_TYPES } from "../../../../pages/clientPortal/api/db/utils";
+import { USER_LOGIN_TYPES } from "../../../../pages/api/db/utils";
 import Icon from "../../common/Icon";
 import Modal from "../../common/Modal";
 import { getConfigColor } from "../../common/utils";
