@@ -262,12 +262,23 @@
     }
   }
 }
+.justify-between {
+  justify-content: space-between;
+}
+
+img {
+  max-width: 100%;
+}
 .plain-page {
   margin: 2rem 0;
 }
+.min-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
 @media (min-width: 1600px) {
   .container {
-    max-width: 1400px;
+    max-width: 1300px;
   }
 }
 

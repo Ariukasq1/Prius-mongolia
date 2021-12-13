@@ -2,7 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.5;
   color: #444;
 }
@@ -15,7 +15,7 @@ a:focus {
 }
 
 button {
-  background: #009300 !important;
+  /* background: #009300 !important; */
   border-radius: 8px !important;
 }
 
