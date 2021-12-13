@@ -123,7 +123,7 @@ export const loadClass = () => {
           // hash password
           password: await this.generatePassword(password)
         });
-      }
+      };
 
       const { companyName, firstName, lastName, type } = doc;
 
@@ -419,7 +419,10 @@ export const loadClass = () => {
       deviceToken
     }: ILoginParams) {
       const user = await Users.findOne({
-        email: { $regex: new RegExp(`^${email}$`, 'i') },
+        $or: [
+          { email: { $regex: new RegExp(`^${email}$`, 'i') } },
+          { phone: { $regex: new RegExp(`^${email}$`, 'i') } }
+        ],
         type: type || { $ne: USER_LOGIN_TYPES.COMPANY }
       });
 
