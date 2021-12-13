@@ -290,3 +290,23 @@ export const QUERY_PAGE_BY_SLUG = gql`
     }
   }
 `;
+
+export const QUERY_PAGES_BY_PARENT = gql`
+  query PagesByParent($databaseID: ID!) {
+    pages(where: { parent: $databaseID, status: PUBLISH }) {
+      edges {
+        node {
+          title
+          slug
+          content
+          status
+          featuredImage {
+            node {
+              sourceUrl
+            }
+          }
+        }
+      }
+    }
+  }
+`;
