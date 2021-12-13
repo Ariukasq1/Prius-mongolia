@@ -1,4 +1,3 @@
-import react, { useState } from 'react';
 import { Button, Row, Col, Card, Container, Accordion, ButtonToolbar, useAccordionToggle } from 'react-bootstrap';
 import Layout from '../components/layout/Layout';
 import { getPaginatedPosts } from '../lib/posts';
@@ -15,13 +14,14 @@ const Career = ({ posts, page }) => {
     );
   };
 
-  const renderItem = (post) => {
+  const renderItem = (post, i) => {
+    console.log(i);
     return (
       <Card key={post.id}>
         <Card.Header>
           <Row className="flex flex-v-center">
             <Col md={6}>
-              <CustomToggle eventKey="0">
+              <CustomToggle eventKey={i.toString()}>
                 <h5>{post.title}</h5>
                 <span>
                   <i className="fa-solid fa-location-dot"></i> {post.career.address}
@@ -44,7 +44,7 @@ const Career = ({ posts, page }) => {
             </Col>
           </Row>
         </Card.Header>
-        <Accordion.Collapse eventKey="0">
+        <Accordion.Collapse eventKey={i.toString()}>
           <Card.Body>
             <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
           </Card.Body>
@@ -69,7 +69,7 @@ const Career = ({ posts, page }) => {
             </div>
           </div>
           <div className="branches-body">
-            <Accordion>{posts && posts.length ? posts.map((post) => renderItem(post)) : <EmptyState title="Хоосон байна." />}</Accordion>
+            <Accordion>{posts && posts.length ? posts.map((post, i) => renderItem(post, i)) : <EmptyState title="Хоосон байна." />}</Accordion>
           </div>
         </Container>
       </div>

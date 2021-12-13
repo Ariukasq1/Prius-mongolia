@@ -6,13 +6,18 @@ import { Container } from 'react-bootstrap';
 export default function Index({ post }) {
   return (
     <Layout title={post.title}>
-      <div className="page">
+      <div className="page single-post">
         <Container>
           <h3>{post.title}</h3>
-          <figure>
-            <img src={post.featuredImage.node.sourceUrl} />
-          </figure>
-          <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          {post.featuredImage.node.sourceUrl && (
+            <figure className="featured-image">
+              <img src={post.featuredImage.node.sourceUrl} />
+            </figure>
+          )}
+
+          <div className="min-container">
+            <div className="content" dangerouslySetInnerHTML={{ __html: post.content }} />
+          </div>
         </Container>
       </div>
     </Layout>

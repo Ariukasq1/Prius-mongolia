@@ -2,7 +2,7 @@
   margin: 2rem 0;
   .card {
     border: 0;
-    background-color: rgba(0, 147, 0, 0.12);
+    background-color: #fff;
     margin: 12px 0;
     height: 320px;
     padding: 2rem;
@@ -66,7 +66,7 @@
   right: 0;
   top: 30%;
   z-index: 2;
-  background: rgba(0, 147, 0, 0.12);
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12)), $green;
   border-radius: 12px 0px 0px 12px;
   padding: 12px 12px;
   text-align: center;
@@ -74,6 +74,7 @@
     display: block;
     margin: 10px 0;
     font-size: 18px;
+    color: #fff;
     .fa-phone,
     .fa-youtube {
       font-size: 16px;
@@ -628,5 +629,15 @@
       right: 0;
       border-radius: 8px 0 0 0;
     }
+  }
+}
+
+.single-post {
+  h3,
+  figure {
+    text-align: center;
+  }
+  .featured-image {
+    margin: 3rem 0 1.5rem;
   }
 }
