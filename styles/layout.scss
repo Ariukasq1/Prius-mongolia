@@ -56,9 +56,18 @@
   .logo {
     flex: 2 0;
   }
-  .search {
+  .main-search {
     flex: 12 0;
     background-color: $lightGrey;
+    input {
+      border: 0;
+      background-color: transparent;
+    }
+    i {
+      font-size: 20px;
+      margin: 0 1rem 0 0.5rem;
+      color: #616e7c;
+    }
   }
   .loyalty {
     flex: 3 0;

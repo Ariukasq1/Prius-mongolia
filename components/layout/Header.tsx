@@ -23,7 +23,10 @@ const Header = () => {
             </a>
           </Link>
         </div>
-        <div className="search main-col center" />
+        <div className="main-search main-col center">
+          <i className="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Хайлт" />
+        </div>
         <div className="loyalty center main-col">
           <Link href="/loyalty/dashboard">
             <a>
