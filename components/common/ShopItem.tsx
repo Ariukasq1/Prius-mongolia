@@ -1,8 +1,32 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, ButtonToolbar } from 'react-bootstrap';
 export const ShopItem = (props) => {
   //   const [userItem] = useState(true);
+  if (props.myItem) {
+    return (
+      <div className="shop-item my-item">
+        <div className="thumbnail">
+          <Image className="product-thumbnail" width={'auto'} height={100} src="/images/product.png" />
+        </div>
+        <div className="price">
+          <span className="main">Үнэ: 18,400₮</span>
+        </div>
+        <h6 className="title">Агергат мотор 30</h6>
+        <span className="desc">Be the first to review “Агергат мотор 30”</span>
+        {/* <div className="action"> */}
+        <ButtonToolbar className="slim">
+          <Button variant="outline-primary" className="edit">
+            <i className="fa-regular fa-pen-to-square"></i> засах
+          </Button>
+          <Button className="trash">
+            <i className="fa-solid fa-trash-can"></i>
+          </Button>
+        </ButtonToolbar>
+        {/* </div> */}
+      </div>
+    );
+  }
   if (props.userItem) {
     return (
       <div className="shop-item user-item">

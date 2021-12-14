@@ -72,6 +72,9 @@ hr {
 .flex-v-center {
   align-items: center;
 }
+.space-between {
+  justify-content: space-between;
+}
 
 .btn.focus,
 .btn:focus {

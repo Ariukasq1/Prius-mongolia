@@ -199,6 +199,40 @@
       }
     }
   }
+  &.my-item {
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    .price {
+      .main {
+        font-size: 12px;
+      }
+    }
+    .title {
+      font-size: 12px;
+    }
+    .desc {
+      font-size: 12px;
+      line-height: 8px;
+    }
+    .btn-toolbar {
+      margin-top: 0.5rem;
+      justify-content: space-between;
+      .btn.edit {
+        padding: 0.3rem 0.8rem;
+        border-radius: 4px !important;
+      }
+      .btn.trash {
+        padding: 0.3rem 0.5rem;
+        margin-left: 0.4rem;
+        box-shadow: none;
+        background: rgba(255, 73, 73, 0.25);
+        border-color: transparent;
+        color: #ff4949;
+      }
+    }
+  }
 }
 .page {
   margin: 40px 0 20px;
@@ -761,6 +795,263 @@
     transform: rotateY(180deg);
     .content {
       font-size: 14px;
+    }
+  }
+}
+
+.box {
+  background: #fff;
+  padding: 1.5rem;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 12px;
+  margin-bottom: 2rem;
+
+  &.big-box {
+    padding: 2.5rem;
+  }
+  &.active {
+    border: 1px solid #009300;
+    box-shadow: 0px 8px 20px rgb(0 147 0 / 24%), 0px 2px 6px rgb(0 147 0 / 16%), 0px 0px 1px rgb(0 147 0 / 8%);
+  }
+  .box-head {
+    border-bottom: 1px solid #cbd2d9;
+    padding-bottom: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+    h6 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+    .btn-toolbar {
+      .btn {
+        padding: 0.3rem 0.5rem;
+        margin-left: 0.3rem;
+      }
+    }
+  }
+  .box-body {
+    .loyalty-point {
+      text-align: center;
+      padding: 3rem 4rem;
+      h1 {
+        font-size: 95px;
+        font-weight: 700;
+        color: #009300;
+        opacity: 0.8;
+      }
+    }
+    h6 {
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      a {
+        text-decoration: underline;
+        color: $green;
+      }
+    }
+    .presents-by-point {
+      .present {
+        text-align: center;
+        display: flex;
+        align-items: end;
+        span {
+          font-size: 14px;
+        }
+        &:nth-child(1) {
+          img {
+            width: 20px;
+          }
+        }
+        &:nth-child(2) {
+          img {
+            width: 30px;
+          }
+        }
+        &:nth-child(3) {
+          img {
+            width: 40px;
+          }
+        }
+        &:nth-child(4) {
+          img {
+            width: 50px;
+          }
+        }
+        &:nth-child(5) {
+          img {
+            width: 60px;
+          }
+        }
+        &:nth-child(6) {
+          img {
+            width: 70px;
+          }
+        }
+        &:nth-child(7) {
+          img {
+            width: 80px;
+          }
+        }
+        &.present-active {
+          span {
+            font-weight: 700;
+          }
+        }
+      }
+    }
+    .car-card {
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 0.5rem;
+      justify-content: space-between;
+      &:hover {
+        .action {
+          visibility: visible;
+        }
+      }
+      img {
+        width: 130px;
+      }
+      .car-details {
+        font-size: 12px;
+
+        margin-left: 5px;
+        p {
+          margin-bottom: 2px;
+        }
+      }
+      .action {
+        margin-left: 0.5rem;
+        position: relative;
+        visibility: hidden;
+        i {
+          display: block;
+          cursor: pointer;
+          &.fa-trash-can {
+            position: absolute;
+            bottom: 0;
+            color: #ff4949;
+          }
+          &.fa-pen-to-square {
+            color: #ffc82c;
+          }
+        }
+      }
+    }
+    .chart {
+      border: 1px solid #cbd2d9;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.04);
+      border-radius: 8px;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      height: 200px;
+    }
+  }
+  &.loyalty {
+    padding: 1rem;
+    height: 440px;
+    .read-more {
+      display: block;
+      color: #616e7c;
+      text-align: right;
+      font-size: 12px;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+    .transaction-list {
+      height: 350px;
+      margin-bottom: 10px;
+      overflow: scroll;
+      .transaction-item {
+        width: 100%;
+        justify-content: space-between;
+        margin: 0.5rem 0;
+        font-size: 12px;
+      }
+    }
+  }
+  .presents-list {
+    .present-item {
+      border: 1px solid #cbd2d9;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.04);
+      border-radius: 8px;
+      text-align: center;
+      padding: 0.5rem;
+      margin-right: 1rem;
+      cursor: pointer;
+      &:last-child {
+        margin-right: 0;
+      }
+      h6 {
+        font-size: 14px;
+        font-weight: 600;
+        color: #000;
+        margin-bottom: 5px;
+      }
+      img {
+        width: 100%;
+      }
+      &.disabled {
+        pointer-events: none;
+        opacity: 0.3;
+      }
+    }
+  }
+  &.transaction-history {
+    .transaction-head {
+      margin-top: 0.5rem;
+      background: #f5f5f5;
+      justify-content: space-between;
+      padding: 0.25rem;
+      border-bottom: 1px solid #cbd2d9;
+      span {
+        color: #616e7c;
+        font-size: 12px;
+        font-weight: 600;
+      }
+    }
+    .transaction-list {
+      height: 180px;
+      overflow-y: scroll;
+      .transaction-item {
+        width: 100%;
+        justify-content: space-between;
+        margin: 0.5rem 0;
+        font-size: 12px;
+        color: #616e7c;
+      }
+    }
+  }
+  &.my-shop {
+    height: auto;
+  }
+}
+
+.my-ads {
+  .my-ads-head {
+    margin-bottom: 1.5rem;
+  }
+  h6 {
+    font-weight: bold;
+  }
+  .create-ad {
+    cursor: pointer;
+    height: 100%;
+    border-radius: 8px;
+    border: 1px dashed $green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      background-color: $lightGreen;
+    }
+    h6 {
+      font-weight: 600;
+      color: $green;
     }
   }
 }

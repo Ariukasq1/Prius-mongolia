@@ -67,106 +67,6 @@
   border-color: $green;
 }
 
-.box {
-  background: #fff;
-  padding: 1.5rem;
-  border: 1px solid #fff;
-  box-sizing: border-box;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
-  border-radius: 12px;
-  margin-bottom: 2rem;
-  &.big-box {
-    padding: 2.5rem;
-  }
-  &.active {
-    border: 1px solid #009300;
-    box-shadow: 0px 8px 20px rgb(0 147 0 / 24%), 0px 2px 6px rgb(0 147 0 / 16%), 0px 0px 1px rgb(0 147 0 / 8%);
-  }
-  .box-head {
-    border-bottom: 1px solid #cbd2d9;
-    padding-bottom: 0.5rem;
-    justify-content: space-between;
-    align-items: center;
-    h6 {
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 0;
-    }
-    .btn-toolbar {
-      .btn {
-        padding: 0.3rem 0.5rem;
-        margin-left: 0.3rem;
-      }
-    }
-  }
-  .box-body {
-    .loyalty-point {
-      text-align: center;
-      padding: 4rem;
-      h1 {
-        font-size: 95px;
-        font-weight: 700;
-        color: #009300;
-        opacity: 0.8;
-      }
-    }
-    h6 {
-      font-size: 16px;
-      font-weight: 700;
-      text-align: center;
-      a {
-        text-decoration: underline;
-        color: $green;
-      }
-    }
-    .presents-by-point {
-      .present {
-        text-align: center;
-        display: flex;
-        align-items: end;
-        &:nth-child(1) {
-          img {
-            width: 20px;
-          }
-        }
-        &:nth-child(2) {
-          img {
-            width: 30px;
-          }
-        }
-        &:nth-child(3) {
-          img {
-            width: 40px;
-          }
-        }
-        &:nth-child(4) {
-          img {
-            width: 50px;
-          }
-        }
-        &:nth-child(5) {
-          img {
-            width: 60px;
-          }
-        }
-        &:nth-child(6) {
-          img {
-            width: 70px;
-          }
-        }
-        &:nth-child(7) {
-          img {
-            width: 80px;
-          }
-        }
-      }
-    }
-  }
-  &.loyalty {
-    padding: 1rem;
-  }
-}
-
 //alert
 
 .alert {
@@ -201,6 +101,21 @@
     color: #616e7c;
     i {
       color: #ff4949;
+    }
+  }
+  &.small {
+    padding: 0.5rem;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    filter: none;
+    p {
+      margin-left: 0;
+    }
+    &.green {
+      background: rgba(0, 147, 0, 0.12);
+      color: $green;
+      border: 0;
     }
   }
 }
