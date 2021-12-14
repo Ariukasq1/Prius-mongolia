@@ -1,8 +1,10 @@
 import React from 'react';
 import Banner from '../components/Banner';
 import ProductsRow from '../components/ProductsRow';
+import CommonAds from '../components/CommonAds';
 import { getAllPosts, getPagesCount, getPaginatedPosts } from '../lib/posts';
 import Layout from '../components/layout/Layout';
+import { Container } from 'react-bootstrap';
 
 export default function Index({ posts, menus }) {
   return (
@@ -10,6 +12,9 @@ export default function Index({ posts, menus }) {
       <Banner data={posts} />
       <ProductsRow title="Баталгаат сэлбэг худалдаа" />
       <ProductsRow title="Танд хэрэгтэй зар" type="user" />
+      <Container>
+        <CommonAds />
+      </Container>
     </Layout>
   );
 }

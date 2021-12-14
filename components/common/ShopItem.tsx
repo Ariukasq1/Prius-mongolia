@@ -3,6 +3,27 @@ import React, { useState } from 'react';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 export const ShopItem = (props) => {
   //   const [userItem] = useState(true);
+
+  if (props.commonItem) {
+    return (
+      <div className="shop-item my-item common-item">
+        <div className="thumbnail">
+          <Image className="product-thumbnail" width={'auto'} height={100} src="/images/product.png" />
+        </div>
+        <div className="price">
+          <span className="main">Үнэ: 18,400₮</span>
+        </div>
+        <h6 className="title">Агергат мотор 30</h6>
+        <span className="desc">Be the first to review “Агергат мотор 30”</span>
+        <ButtonToolbar className="slim">
+          <Button variant="outline-primary" className="edit">
+            Дугаар харах
+          </Button>
+        </ButtonToolbar>
+      </div>
+    );
+  }
+
   if (props.myItem) {
     return (
       <div className="shop-item my-item">
@@ -14,7 +35,6 @@ export const ShopItem = (props) => {
         </div>
         <h6 className="title">Агергат мотор 30</h6>
         <span className="desc">Be the first to review “Агергат мотор 30”</span>
-        {/* <div className="action"> */}
         <ButtonToolbar className="slim">
           <Button variant="outline-primary" className="edit">
             <i className="fa-regular fa-pen-to-square"></i> засах
@@ -23,7 +43,6 @@ export const ShopItem = (props) => {
             <i className="fa-solid fa-trash-can"></i>
           </Button>
         </ButtonToolbar>
-        {/* </div> */}
       </div>
     );
   }
