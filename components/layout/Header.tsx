@@ -26,6 +26,9 @@ const Header = () => {
         <div className="main-search main-col center">
           <i className="fa-solid fa-magnifying-glass"></i>
           <input type="text" placeholder="Хайлт" />
+          <Button className="filter">
+            <img src="/icons/filter.png" />
+          </Button>
         </div>
         <div className="loyalty center main-col">
           <Link href="/loyalty/dashboard">
