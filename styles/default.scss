@@ -327,38 +327,6 @@
       .total {
         margin-top: 1rem;
       }
-      .cart-item {
-        padding: 5px;
-        margin: 0.4rem 0;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.04);
-        img {
-          border-radius: 12px;
-          width: 100px;
-        }
-        .details {
-          margin-left: 0.5rem;
-          width: 100%;
-          position: relative;
-          h6 {
-            font-size: 12px;
-            font-weight: bold;
-            color: $dark;
-            margin-bottom: 0rem;
-          }
-          span {
-            color: $green;
-            font-size: 12px;
-          }
-          .fa-trash-can {
-            position: absolute;
-            right: 3px;
-            top: 3px;
-            color: #ff4949;
-            font-size: 16px;
-            cursor: pointer;
-          }
-        }
-      }
     }
   }
 }

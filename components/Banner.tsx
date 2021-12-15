@@ -1,11 +1,11 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import Link from "next/link";
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import Link from 'next/link';
 
 type Props = {
   data: any;
 };
-const Banner = ({ data }) => {
+const Banner = ({ data }: Props) => {
   return (
     <div className="banner">
       <Container>
@@ -21,13 +21,7 @@ const Banner = ({ data }) => {
                 <h4>{data[0].title}</h4>
                 <div dangerouslySetInnerHTML={{ __html: data[0].content }} />
               </div>
-              <Link
-                href={
-                  data[0].banner.customLink
-                    ? data[0].banner.customLink
-                    : `posts/${data[0].slug}`
-                }
-              >
+              <Link href={data[0].banner.customLink ? data[0].banner.customLink : `posts/${data[0].slug}`}>
                 <a className="read-more">Дэлгэрэнгүй</a>
               </Link>
             </div>
@@ -41,17 +35,9 @@ const Banner = ({ data }) => {
                 >
                   <div className="caption">
                     <h4>{data[2].title}</h4>
-                    <div
-                      dangerouslySetInnerHTML={{ __html: data[2].content }}
-                    />
+                    <div dangerouslySetInnerHTML={{ __html: data[2].content }} />
                   </div>
-                  <Link
-                    href={
-                      data[2].banner.customLink
-                        ? data[2].banner.customLink
-                        : `posts/${data[2].slug}`
-                    }
-                  >
+                  <Link href={data[2].banner.customLink ? data[2].banner.customLink : `posts/${data[2].slug}`}>
                     <a className="read-more">
                       <i className="fa-solid fa-angle-right" />
                     </a>
@@ -65,16 +51,8 @@ const Banner = ({ data }) => {
                     backgroundImage: `url(${data[3].featuredImage.sourceUrl})`,
                   }}
                 >
-                  <div className="caption">
-                    {/* <h4>{data[3].title}</h4> */}
-                  </div>
-                  <Link
-                    href={
-                      data[3].banner.customLink
-                        ? data[3].banner.customLink
-                        : `posts/${data[3].slug}`
-                    }
-                  >
+                  <div className="caption">{/* <h4>{data[3].title}</h4> */}</div>
+                  <Link href={data[3].banner.customLink ? data[3].banner.customLink : `posts/${data[3].slug}`}>
                     <a className="read-more white">
                       <i className="fa-solid fa-angle-right" />
                     </a>
@@ -94,13 +72,7 @@ const Banner = ({ data }) => {
                 <h4>{data[1].title}</h4>
                 <div dangerouslySetInnerHTML={{ __html: data[1].content }} />
               </div>
-              <Link
-                href={
-                  data[1].banner.customLink
-                    ? data[1].banner.customLink
-                    : `posts/${data[1].slug}`
-                }
-              >
+              <Link href={data[1].banner.customLink ? data[1].banner.customLink : `posts/${data[1].slug}`}>
                 <a className="read-more white">
                   <i className="fa-solid fa-angle-right" />
                 </a>
