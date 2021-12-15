@@ -10,6 +10,7 @@
     position: relative;
     background-position: right bottom !important;
     background-repeat: no-repeat !important;
+    z-index: -1;
     .caption {
       color: $dark;
       h4 {
@@ -1055,6 +1056,23 @@
     h6 {
       font-weight: 600;
       color: $green;
+    }
+  }
+}
+
+.empty-state {
+  &.cart {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $dark;
+    opacity: 0.5;
+    margin-top: 1rem;
+    text-align: center;
+    .fa-cart-plus {
+      color: $green;
+      font-size: 26px;
     }
   }
 }

@@ -16,7 +16,7 @@ export const ShopItem = (props) => {
         <h6 className="title">Агергат мотор 30</h6>
         <span className="desc">Be the first to review “Агергат мотор 30”</span>
         <ButtonToolbar className="slim">
-          <Button variant="outline-primary" className="edit">
+          <Button variant="outline-primary" className="w100 edit">
             Дугаар харах
           </Button>
         </ButtonToolbar>

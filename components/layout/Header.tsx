@@ -6,9 +6,10 @@ import Button from 'react-bootstrap/Button';
 import Link from 'next/link';
 import FloatingMenu from './FloatingMenu';
 import LoginContainer from '../../modules/clientPortal/user/containers/Login';
-
+import UserDropdown from '../../components/UserDropdown';
+import CartDropdown from '../CartDropdown';
 const Header = () => {
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(true);
   const [modalShow, setModalShow] = useState(false);
 
   return (
@@ -40,9 +41,7 @@ const Header = () => {
         </div>
         <div className="user center main-col">
           {user ? (
-            <Button className="transparent">
-              <span>Сайн байна уу?</span> Хэргэлэгч
-            </Button>
+            <UserDropdown />
           ) : (
             <>
               <Button className="transparent" onClick={() => setModalShow(!modalShow)}>
@@ -53,9 +52,7 @@ const Header = () => {
           )}
         </div>
         <div className="cart center main-col ">
-          <Button className="transparent">
-            <i className="fa-solid fa-cart-shopping" />
-          </Button>
+          <CartDropdown />
         </div>
       </div>
     </header>

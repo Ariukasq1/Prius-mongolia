@@ -92,6 +92,9 @@
   }
   .user {
     flex: 2 0;
+    span {
+      display: block;
+    }
   }
   .cart {
     flex: 1 0;

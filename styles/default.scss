@@ -261,6 +261,108 @@
   }
 }
 
+.dropdown {
+  &.show {
+    .dropdown-toggle {
+      color: $dark;
+    }
+  }
+  .dropdown-toggle {
+    &:after {
+      content: none;
+    }
+    &.cart-btn {
+      .badge {
+        position: absolute;
+        background: red;
+        color: #fff;
+        font-size: 10px;
+        border-radius: 50%;
+        top: 5px;
+        right: 15px;
+      }
+    }
+  }
+  .dropdown-menu {
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    border: 0;
+
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.04);
+    .btn.dropdown-item {
+      padding: 0.3rem 0;
+      font-size: 14px;
+      color: #616e7c;
+      font-weight: 400;
+      text-align: left;
+      width: 100%;
+      position: relative;
+      padding-right: 1.5rem;
+      i {
+        margin-right: 0.5rem;
+      }
+      .fa-angle-right {
+        margin-left: 0.5rem;
+        margin-right: 0;
+        position: absolute;
+        right: 0;
+        bottom: 8px;
+      }
+    }
+    .btn.logout {
+      background: $green;
+      color: #fff;
+      width: 100%;
+      margin-top: 0.5rem;
+      font-size: 14px;
+    }
+    &.cart {
+      margin-right: 70px;
+      min-width: 300px;
+      span {
+        font-weight: 700;
+        color: #000;
+        font-size: 14px;
+      }
+      .total {
+        margin-top: 1rem;
+      }
+      .cart-item {
+        padding: 5px;
+        margin: 0.4rem 0;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.04);
+        img {
+          border-radius: 12px;
+          width: 100px;
+        }
+        .details {
+          margin-left: 0.5rem;
+          width: 100%;
+          position: relative;
+          h6 {
+            font-size: 12px;
+            font-weight: bold;
+            color: $dark;
+            margin-bottom: 0rem;
+          }
+          span {
+            color: $green;
+            font-size: 12px;
+          }
+          .fa-trash-can {
+            position: absolute;
+            right: 3px;
+            top: 3px;
+            color: #ff4949;
+            font-size: 16px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
 .justify-between {
   justify-content: space-between;
 }
@@ -274,6 +376,10 @@ img {
 .min-container {
   max-width: 900px;
   margin: 0 auto;
+}
+
+.w100 {
+  width: 100%;
 }
 @media (min-width: 1600px) {
   .container {
