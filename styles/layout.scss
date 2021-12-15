@@ -56,9 +56,29 @@
   .logo {
     flex: 2 0;
   }
-  .search {
+  .main-search {
     flex: 12 0;
     background-color: $lightGrey;
+    justify-content: start;
+    input {
+      border: 0;
+      background-color: transparent;
+      width: 100%;
+      &::placeholder {
+        color: #616e7c;
+      }
+    }
+    .filter {
+      background: #616e7c;
+      padding: 0.5rem 0.8rem;
+      text-align: center;
+      border-radius: 4px !important;
+    }
+    i {
+      font-size: 20px;
+      margin: 0 1rem 0 0.5rem;
+      color: #616e7c;
+    }
   }
   .loyalty {
     flex: 3 0;
@@ -72,6 +92,9 @@
   }
   .user {
     flex: 2 0;
+    span {
+      display: block;
+    }
   }
   .cart {
     flex: 1 0;

@@ -9,10 +9,10 @@ const TopBar = () => {
   return (
     <div className="top-bar flex">
       <div className="menu">
-        <Link href="/">Хайбрид зарын платформ</Link>
+        <Link href="/ad-platform">Хайбрид зарын платформ</Link>
         <Link href="/loyalty/dashboard">Лояалти хөтөлбөр</Link>
         <Link href="/booking/select-branch">Засвар үйлчилгээний захиалга</Link>
-        <Link href="/">Баталгаат сэлбэг худалдаа</Link>
+        <Link href="/parts-sales">Баталгаат сэлбэг худалдаа</Link>
       </div>
       <div className="top-contact">
         <span className="time">09:00 - 17:30</span>
