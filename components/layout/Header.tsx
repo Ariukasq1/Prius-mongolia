@@ -35,7 +35,7 @@ const Header = () => {
           <Link href="/loyalty/dashboard">
             <a>
               <img src="/images/icons/hand.svg" />
-              Лояалти хөтөлбөр
+              <span>Лояалти хөтөлбөр</span>
             </a>
           </Link>
         </div>

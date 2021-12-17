@@ -40,7 +40,7 @@ const Footer = () => {
               </div>
             </div>
           </Col>
-          <Col xs={12} lg={3} md={6}>
+          <Col xs={6} lg={3} md={6}>
             <div className="footer-menu">
               <h5>Бидний тухай</h5>
               <ul>
@@ -59,7 +59,7 @@ const Footer = () => {
               </ul>
             </div>
           </Col>
-          <Col xs={12} lg={3} md={6}>
+          <Col xs={6} lg={3} md={6}>
             <div className="footer-menu">
               <h5>Бидний тухай</h5>
               <ul>
@@ -78,7 +78,7 @@ const Footer = () => {
               </ul>
             </div>
           </Col>
-          <Col xs={12} lg={3} md={6}>
+          <Col xs={6} lg={3} md={6}>
             <div className="footer-menu">
               <h5>Бидний тухай</h5>
               <ul>

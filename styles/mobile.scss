@@ -1,0 +1,100 @@
+@media (max-width: 767.98px) {
+  .md-shown {
+    display: block;
+  }
+  .mobile-menu {
+    position: absolute;
+    top: 0;
+    left: -250px;
+    transition: 0.5s;
+    background: #fff;
+    width: 250px;
+    padding: 4rem 2rem 2rem;
+    z-index: 5;
+    height: 100%;
+    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.06)) drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.04));
+    a {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      color: $dark;
+      margin-bottom: 1rem;
+    }
+    .hide-menu {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      i {
+        font-size: 24px;
+      }
+    }
+  }
+  .top-bar {
+    padding: 1rem 1rem 0.5rem;
+    .burger {
+      i {
+        font-size: 24px;
+      }
+    }
+  }
+  .main-bar {
+    .main-col {
+      padding: 0.2rem;
+      .btn {
+        padding: 0.5rem;
+      }
+    }
+    .logo {
+      flex: 6 0;
+    }
+    .main-search {
+      display: none;
+    }
+    .loyalty {
+      flex: 2 0;
+      img {
+        margin-right: 0;
+      }
+      span {
+        display: none;
+      }
+    }
+    .user {
+      flex: 2 0;
+      h6 {
+        display: none;
+      }
+    }
+    .cart {
+      flex: 2 0;
+    }
+  }
+  .dropdown .dropdown-toggle.cart-btn .badge {
+    right: 5px;
+    top: 0;
+  }
+
+  .banner .main .caption {
+    max-width: 100%;
+  }
+
+  .presents-list {
+    overflow-x: scroll;
+  }
+
+  .shop-item.my-item {
+    margin: 0.5rem 0;
+  }
+
+  footer {
+    .contact {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+@media (min-width: 767.98px) {
+  .md-shown {
+    display: none;
+  }
+}

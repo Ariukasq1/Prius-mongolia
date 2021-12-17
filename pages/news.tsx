@@ -53,7 +53,7 @@ const News = ({ posts, featuredPost }) => {
 
   const featured = featuredPost.posts[0];
   return (
-    <Layout title="Салбарууд">
+    <Layout title="Мэдээ мэдээлэл">
       <div className="news-page page">
         <Container>
           {posts && posts.length > 0 ? (

@@ -10,7 +10,7 @@ const CartDropdown = () => {
         <img src="/images/car.png" />
         <div className="details">
           <h6>Зуны дугуй</h6>
-          <span>Үнэ: 500,000₮</span>
+          <span className="price">Үнэ: 500,000₮</span>
           <div className="count"></div>
           <i className="fa-solid fa-trash-can"></i>
         </div>

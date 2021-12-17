@@ -30,6 +30,18 @@ const ProductsRow = (props) => {
             <Col xs={12} sm={6} md={4} lg={3}>
               <ShopItem userItem={props.type === 'user' ? true : false} />
             </Col>
+            <Col xs={12} sm={6} md={4} lg={3}>
+              <ShopItem userItem={props.type === 'user' ? true : false} />
+            </Col>
+            <Col xs={12} sm={6} md={4} lg={3}>
+              <ShopItem userItem={props.type === 'user' ? true : false} />
+            </Col>
+            <Col xs={12} sm={6} md={4} lg={3}>
+              <ShopItem userItem={props.type === 'user' ? true : false} />
+            </Col>
+            <Col xs={12} sm={6} md={4} lg={3}>
+              <ShopItem userItem={props.type === 'user' ? true : false} />
+            </Col>
           </Row>
         </div>
       </Container>

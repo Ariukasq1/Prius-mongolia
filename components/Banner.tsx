@@ -26,7 +26,7 @@ const Banner = ({ data }: Props) => {
               </Link>
             </div>
             <Row>
-              <Col xs={6} sm={6} lg={6}>
+              <Col xs={12} sm={6} lg={6}>
                 <div
                   className="card"
                   style={{
@@ -44,7 +44,7 @@ const Banner = ({ data }: Props) => {
                   </Link>
                 </div>
               </Col>
-              <Col xs={6} sm={6} lg={6}>
+              <Col xs={12} sm={6} lg={6}>
                 <div
                   className="card"
                   style={{

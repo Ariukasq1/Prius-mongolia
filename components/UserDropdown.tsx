@@ -6,7 +6,10 @@ const UserDropdown = () => {
   return (
     <Dropdown align="end">
       <Dropdown.Toggle className="transparent" variant="success" id="dropdown-basic">
-        <span>Сайн байна уу?</span> Хэргэлэгч
+        <h6>
+          <span>Сайн байна уу?</span> Хэргэлэгч
+        </h6>
+        <i className="fa-solid fa-user md-shown"></i>
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
