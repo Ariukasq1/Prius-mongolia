@@ -1,6 +1,6 @@
 import react, { useState } from 'react';
 import Link from 'next/link';
-
+import { useRouter } from 'next/router';
 type Props = {
   menu: any;
 };
@@ -10,6 +10,7 @@ const TopBar = () => {
   const toggleMenu = () => {
     setToggle(!toggle);
   };
+  const router = useRouter();
 
   return (
     <div className="top-bar flex">
@@ -20,10 +21,18 @@ const TopBar = () => {
         <div className="hide-menu md-shown" onClick={toggleMenu}>
           <i className="fa-solid fa-xmark"></i>
         </div>
-        <Link href="/ad-platform">Хайбрид зарын платформ</Link>
-        <Link href="/loyalty/dashboard">Лояалти хөтөлбөр</Link>
-        <Link href="/booking/select-branch">Засвар үйлчилгээний захиалга</Link>
-        <Link href="/parts-sales">Баталгаат сэлбэг худалдаа</Link>
+        <Link href="/ad-platform">
+          <a className={router.pathname.includes('/ad-platform') && 'active'}>Хайбрид зарын платформ</a>
+        </Link>
+        <Link href="/loyalty/dashboard">
+          <a className={router.pathname.includes('/loyalty') && 'active'}>Лояалти хөтөлбөр</a>
+        </Link>
+        <Link href="/booking/select-branch">
+          <a className={router.pathname.includes('/booking') && 'active'}>Засвар үйлчилгээний захиалга</a>
+        </Link>
+        <Link href="/parts-sales">
+          <a className={router.pathname.includes('/parts-sales') && 'active'}>Баталгаат сэлбэг худалдаа</a>
+        </Link>
       </div>
       <div className="top-contact">
         <span className="time">09:00 - 17:30</span>

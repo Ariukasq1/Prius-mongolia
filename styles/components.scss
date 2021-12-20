@@ -108,6 +108,7 @@
   overflow: hidden;
   margin-bottom: 2rem;
   .thumbnail {
+    cursor: pointer;
     .product-thumbnail {
       border-radius: 12px;
     }
@@ -156,23 +157,37 @@
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 6px;
+    cursor: pointer;
   }
   .desc {
     color: #616e7c;
     font-size: 14px;
   }
+
+  .quantity {
+    flex: 2 0;
+    display: flex;
+    align-items: center;
+    span {
+      color: $green;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    input {
+      width: 30px;
+      text-align: center;
+      border: 0;
+      height: 100%;
+      border-radius: 4px;
+      font-size: 18px;
+      font-weight: 600;
+      background: $lightGreen;
+      margin: 0 5px;
+    }
+  }
   .action {
     display: flex;
-    .quantity {
-      flex: 2 0;
-      input {
-        width: 100%;
-        border: 0;
-        height: 100%;
-        border-radius: 4px;
-        background: $lightGreen;
-      }
-    }
+    margin-top: 0.5rem;
     .btn {
       margin-left: 0.5rem;
     }
@@ -190,6 +205,10 @@
       background: $lightGreen;
       color: $dark;
       border: 0;
+      padding: 0.5rem 0.3rem;
+      i {
+        font-size: 18px;
+      }
     }
   }
   &.user-item {
@@ -305,7 +324,7 @@
           opacity: 0.7;
           border-radius: 12px;
           display: inline-block;
-          color: $dark;
+          color: #fff;
           font-weight: 600;
           &.closed {
             background-color: #ff4949;

@@ -6,7 +6,23 @@ import { getPageBySlug } from '../../lib/page';
 import EmptyState from '../../components/common/EmptyState';
 const Branches = ({ posts, page }) => {
   const [map, setMap] = useState(false);
+
   const renderBranch = (post) => {
+    const betweenHours = () => {
+      const open = post.branches.openingHour;
+      const close = post.branches.closingHour;
+      const start = open.slice(0, -3) * 60 + parseInt(open.slice(-2));
+      const end = close.slice(0, -3) * 60 + parseInt(close.slice(-2));
+      const date = new Date();
+      const now = date.getHours() * 60 + date.getMinutes();
+
+      if (start <= now && now <= end) {
+        return <span className="status open">Нээлттэй</span>;
+      } else {
+        return <span className="status closed">Хаалттай</span>;
+      }
+    };
+
     return (
       <div className="branch" key={post.id}>
         <Row>
@@ -27,7 +43,7 @@ const Branches = ({ posts, page }) => {
               <span>
                 {post.branches.workingDays} {post.branches.openingHour} - {post.branches.closingHour}
               </span>
-              <span className="status open">Нээлттэй</span>
+              {post.branches.openingHour && post.branches.closingHour && betweenHours()}
               <div className="social flex">
                 {post.branches.facebook && (
                   <a target="_blank" href={post.branches.facebook}>

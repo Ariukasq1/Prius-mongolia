@@ -4,7 +4,8 @@ import Modal from 'react-bootstrap/Modal';
 type Props = {
   show?: boolean;
   rounded?: boolean;
-  size?: string;
+  size?: any;
+  title?: string;
   onHide?: () => void;
   content: ({ closeModal }: { closeModal: () => void }) => React.ReactNode;
 };
@@ -27,10 +28,15 @@ export default class ModalComponent extends React.Component<Props, { show: boole
   };
 
   render() {
-    const { content, rounded, size } = this.props;
+    const { content, rounded, size, title } = this.props;
 
     return (
       <Modal {...this.props} size={size} aria-labelledby="contained-modal-title-vcenter" centered={true} className={rounded ? 'rounded' : ''}>
+        {title && (
+          <Modal.Header closeButton>
+            <Modal.Title>{title}</Modal.Title>
+          </Modal.Header>
+        )}
         <Modal.Body>{content({ closeModal: this.onCancel })}</Modal.Body>
       </Modal>
     );
