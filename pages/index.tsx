@@ -6,9 +6,9 @@ import { getAllPosts, getPagesCount, getPaginatedPosts } from '../lib/posts';
 import Layout from '../components/layout/Layout';
 import { Container } from 'react-bootstrap';
 
-export default function Index({ posts, menus }) {
+export default function Index({ posts, menus, contactData }) {
   return (
-    <Layout menus={menus} title="Нүүр хуудас">
+    <Layout contactData={contactData} menus={menus} title="Нүүр хуудас">
       <Banner data={posts} />
       <ProductsRow title="Баталгаат сэлбэг худалдаа" />
       <ProductsRow title="Танд хэрэгтэй зар" type="user" />

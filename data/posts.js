@@ -132,6 +132,7 @@ export const QUERY_POSTS_BY_CATEGORY_SLUG = gql`
             closingHour
             facebook
             instagram
+            images
           }
           categories {
             edges {
@@ -272,6 +273,13 @@ export const QUERY_PAGE_BY_SLUG = gql`
       }
       id
       content
+      contact {
+        address
+        email
+        web
+        facebook
+        youtube
+      }
       date
       featuredImage {
         node {

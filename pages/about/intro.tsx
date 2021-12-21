@@ -5,7 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { getPaginatedPosts } from '../../lib/posts';
 import Slider from 'react-slick';
 
-export default function Intro({ page, posts, pages }) {
+export default function Intro({ page, posts, pages, menus, contactData }) {
   const settings = {
     dots: true,
     infinite: true,
@@ -14,7 +14,7 @@ export default function Intro({ page, posts, pages }) {
     slidesToScroll: 1,
   };
   return (
-    <Layout title={page.title}>
+    <Layout menus={menus} contactData={contactData} title={page.title}>
       <div className="plain-page intro">
         <Slider {...settings}>
           {posts &&

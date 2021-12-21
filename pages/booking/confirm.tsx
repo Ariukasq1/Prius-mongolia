@@ -8,12 +8,12 @@ import Alert from '../../components/common/Alert';
 import { useRouter } from 'next/router';
 import Modal from '../../components/common/Modal';
 import Link from 'next/link';
-const Confirm = ({ posts, page }) => {
+const Confirm = ({ posts, page, menus, contactData }) => {
   const [modalShow, setModalShow] = useState(false);
   const router = useRouter();
 
   return (
-    <Layout title="Засварын төрөл Өдөр сонгох">
+    <Layout contactData={contactData} menus={menus} title="Засварын төрөл Өдөр сонгох">
       <div className="confirm-page branches-page page">
         <Container>
           <div className="branches-head">

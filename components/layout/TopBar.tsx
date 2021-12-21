@@ -5,13 +5,12 @@ type Props = {
   menu: any;
 };
 
-const TopBar = () => {
+const TopBar = ({ menu }: Props) => {
   const [toggle, setToggle] = useState(false);
   const toggleMenu = () => {
     setToggle(!toggle);
   };
   const router = useRouter();
-
   return (
     <div className="top-bar flex">
       <div className="md-shown burger" onClick={toggleMenu}>
@@ -21,18 +20,12 @@ const TopBar = () => {
         <div className="hide-menu md-shown" onClick={toggleMenu}>
           <i className="fa-solid fa-xmark"></i>
         </div>
-        <Link href="/ad-platform">
-          <a className={router.pathname.includes('/ad-platform') && 'active'}>Хайбрид зарын платформ</a>
-        </Link>
-        <Link href="/loyalty/dashboard">
-          <a className={router.pathname.includes('/loyalty') && 'active'}>Лояалти хөтөлбөр</a>
-        </Link>
-        <Link href="/booking/select-branch">
-          <a className={router.pathname.includes('/booking') && 'active'}>Засвар үйлчилгээний захиалга</a>
-        </Link>
-        <Link href="/parts-sales">
-          <a className={router.pathname.includes('/parts-sales') && 'active'}>Баталгаат сэлбэг худалдаа</a>
-        </Link>
+        {menu &&
+          menu.menuItems.map((item) => (
+            <Link key={item.id} href={item.path}>
+              <a className={router.pathname.includes(item.path) && 'active'}>{item.label}</a>
+            </Link>
+          ))}
       </div>
       <div className="top-contact">
         <span className="time">09:00 - 17:30</span>

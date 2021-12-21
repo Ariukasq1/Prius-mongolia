@@ -3,9 +3,9 @@ import { getPageBySlug } from '../../lib/page';
 import Layout from '../../components/layout/Layout';
 import { Container } from 'react-bootstrap';
 
-export default function Greeting({ page }) {
+export default function Greeting({ page, menus, contactData }) {
   return (
-    <Layout title={page.title}>
+    <Layout contactData={contactData} menus={menus} title={page.title}>
       <div className="plain-page greeting">
         <Container>
           <figure>

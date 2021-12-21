@@ -5,7 +5,7 @@ import { getPaginatedPosts } from '../lib/posts';
 import Link from 'next/link';
 import EmptyState from '../components/common/EmptyState';
 import dayjs from 'dayjs';
-const News = ({ posts, featuredPost }) => {
+const News = ({ posts, featuredPost, menus, contactData }) => {
   const Item = (post) => {
     return (
       <Col md={6} xs={12} lg={4} key={post.id}>
@@ -53,7 +53,7 @@ const News = ({ posts, featuredPost }) => {
 
   const featured = featuredPost.posts[0];
   return (
-    <Layout title="Мэдээ мэдээлэл">
+    <Layout menus={menus} contactData={contactData} title="Мэдээ мэдээлэл">
       <div className="news-page page">
         <Container>
           {posts && posts.length > 0 ? (

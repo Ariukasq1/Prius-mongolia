@@ -8,14 +8,20 @@ import FloatingMenu from './FloatingMenu';
 import LoginContainer from '../../modules/clientPortal/user/containers/Login';
 import UserDropdown from '../../components/UserDropdown';
 import CartDropdown from '../CartDropdown';
-const Header = () => {
+
+type Props = {
+  menu?: any;
+  contactData?: any;
+};
+
+const Header = ({ menu, contactData }: Props) => {
   const [user, setUser] = useState(true);
   const [modalShow, setModalShow] = useState(false);
 
   return (
     <header>
-      <FloatingMenu />
-      <TopBar />
+      <FloatingMenu socialData={contactData && contactData.contact} />
+      <TopBar menu={menu} />
       <div className="main-bar">
         <div className="logo center main-col">
           <Link href="/">

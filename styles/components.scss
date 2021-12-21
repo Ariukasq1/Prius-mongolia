@@ -291,7 +291,7 @@
       border: 1px solid #cbd2d9;
       box-sizing: border-box;
       border-radius: 12px;
-      // height: 270px;
+      padding-right: 1.5rem;
       .thumbnail {
         height: 100%;
         border-radius: 12px 0 0 12px;
@@ -305,6 +305,17 @@
         }
         p {
           font-size: 12px;
+        }
+        .images {
+          overflow-x: scroll;
+          display: flex;
+          width: 100%;
+          img {
+            border-radius: 8px;
+            width: 140px;
+            height: auto;
+            margin-right: 0.5rem;
+          }
         }
       }
       .branch-contact {
@@ -880,7 +891,7 @@
       .present {
         text-align: center;
         display: flex;
-        align-items: end;
+        align-items: flex-end;
         span {
           font-size: 14px;
         }

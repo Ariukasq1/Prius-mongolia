@@ -2,100 +2,102 @@ import react from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Image from 'next/image';
 import Link from 'next/link';
-const Footer = () => {
+
+type Props = {
+  aboutMenu: any;
+  footerMenu: any;
+  linkMenu: any;
+  contactData: any;
+};
+
+const Footer = ({ aboutMenu, footerMenu, linkMenu, contactData }: Props) => {
   return (
     <footer>
       <Container>
         <Row>
           <Col xs={12} lg={3} md={6}>
-            <Image className="footer-logo" alt="logo" src="/images/logo.png" width={215} height={85} />
-            <div className="contact">
-              <ul>
-                <li className="flex flex-v-center">
-                  <i className="fa-solid fa-location-dot"></i> <span>БГД -16 р хороо Туулын-17, “Prius center” төв байр</span>
-                </li>
-                <li className="flex flex-v-center">
-                  <i className="fa-solid fa-envelope-open"></i> <a href="mail:info@priuscenter.mn">info@priuscenter.mn</a>
-                </li>
-                <li className="flex flex-v-center">
-                  <i className="fa-solid fa-globe"></i>{' '}
-                  <a href="https://www.priuscenter.mn" target="_blank">
-                    www.priuscenter.mn
+            <Link href="/">
+              <Image className="footer-logo" alt="logo" src="/images/logo.png" width={215} height={85} />
+            </Link>
+            {contactData && (
+              <div className="contact">
+                <ul>
+                  <li className="flex flex-v-center">
+                    <i className="fa-solid fa-location-dot"></i> <span>{contactData.contact.address}</span>
+                  </li>
+                  <li className="flex flex-v-center">
+                    <i className="fa-solid fa-envelope-open"></i> <a href={`mail:${contactData.contact.email}`}>{contactData.contact.email}</a>
+                  </li>
+                  <li className="flex flex-v-center">
+                    <i className="fa-solid fa-globe"></i>{' '}
+                    <a href="https://www.priuscenter.mn" target="_blank">
+                      www.priuscenter.mn
+                    </a>
+                  </li>
+                </ul>
+                <div className="social flex">
+                  {contactData.contact.facebook && (
+                    <a target="_blank" href={contactData.contact.facebook}>
+                      <i className="fa-brands fa-facebook"></i>
+                    </a>
+                  )}
+                  <a target="_blank" href="https://fb.com">
+                    <i className="fa-brands fa-instagram"></i>
                   </a>
-                </li>
-              </ul>
-              <div className="social flex">
-                <a target="_blank" href="https://fb.com">
-                  <i className="fa-brands fa-facebook"></i>
-                </a>
-                <a target="_blank" href="https://fb.com">
-                  <i className="fa-brands fa-instagram"></i>
-                </a>
-                <a target="_blank" href="https://fb.com">
-                  <i className="fa-brands fa-youtube"></i>
-                </a>
-                <a target="_blank" href="https://fb.com">
-                  <i className="fa-brands fa-linkedin"></i>
-                </a>
+                  <a target="_blank" href="https://fb.com">
+                    <i className="fa-brands fa-youtube"></i>
+                  </a>
+                  <a target="_blank" href="https://fb.com">
+                    <i className="fa-brands fa-linkedin"></i>
+                  </a>
+                </div>
               </div>
-            </div>
+            )}
           </Col>
           <Col xs={6} lg={3} md={6}>
-            <div className="footer-menu">
-              <h5>Бидний тухай</h5>
-              <ul>
-                <li>
-                  <Link href="/intro">Танилцуулга</Link>
-                </li>
-                <li>
-                  <Link href="/intro">Танилцуулга</Link>
-                </li>
-                <li>
-                  <Link href="/intro">Танилцуулга</Link>
-                </li>
-                <li>
-                  <Link href="/about/branches">Салбарууд</Link>
-                </li>
-              </ul>
-            </div>
+            {aboutMenu && (
+              <div className="footer-menu">
+                <h5>{aboutMenu.name}</h5>
+                <ul>
+                  {aboutMenu.menuItems.length > 0 &&
+                    aboutMenu.menuItems.map((item) => (
+                      <li key={item.id}>
+                        <Link href={item.path}>{item.label}</Link>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            )}
           </Col>
           <Col xs={6} lg={3} md={6}>
-            <div className="footer-menu">
-              <h5>Бидний тухай</h5>
-              <ul>
-                <li>
-                  <Link href="/intro">Танилцуулга</Link>
-                </li>
-                <li>
-                  <Link href="/intro">Танилцуулга</Link>
-                </li>
-                <li>
-                  <Link href="/intro">Танилцуулга</Link>
-                </li>
-                <li>
-                  <Link href="/intro">Танилцуулга</Link>
-                </li>
-              </ul>
-            </div>
+            {footerMenu && (
+              <div className="footer-menu">
+                <h5>{footerMenu.name}</h5>
+                <ul>
+                  {footerMenu.menuItems.length > 0 &&
+                    footerMenu.menuItems.map((item) => (
+                      <li key={item.id}>
+                        <Link href={item.path}>{item.label}</Link>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            )}
           </Col>
           <Col xs={6} lg={3} md={6}>
-            <div className="footer-menu">
-              <h5>Бидний тухай</h5>
-              <ul>
-                <li>
-                  <Link href="/about/faq">FAQ</Link>
-                </li>
-                <li>
-                  <Link href="/intro">Танилцуулга</Link>
-                </li>
-                <li>
-                  <Link href="/intro">Танилцуулга</Link>
-                </li>
-                <li>
-                  <Link href="/intro">Танилцуулга</Link>
-                </li>
-              </ul>
-            </div>
+            {linkMenu && (
+              <div className="footer-menu">
+                <h5>{linkMenu.name}</h5>
+                <ul>
+                  {linkMenu.menuItems.length > 0 &&
+                    linkMenu.menuItems.map((item) => (
+                      <li key={item.id}>
+                        <Link href={item.path}>{item.label}</Link>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            )}
           </Col>
         </Row>
       </Container>

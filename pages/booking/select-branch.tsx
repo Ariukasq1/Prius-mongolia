@@ -6,7 +6,7 @@ import { getPageBySlug } from '../../lib/page';
 import EmptyState from '../../components/common/EmptyState';
 import Stepper from '../../components/common/Stepper';
 import { useRouter } from 'next/router';
-const SelectBranch = ({ posts, page }) => {
+const SelectBranch = ({ posts, page, menus, contactData }) => {
   const [map, setMap] = useState(false);
   const router = useRouter();
 
@@ -37,7 +37,7 @@ const SelectBranch = ({ posts, page }) => {
   };
 
   return (
-    <Layout title="Салбар сонгох">
+    <Layout contactData={contactData} menus={menus} title="Салбар сонгох">
       <div className="select-branch-page branches-page page">
         <Container>
           <div className="branches-head">

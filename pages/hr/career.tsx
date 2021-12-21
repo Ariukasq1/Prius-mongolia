@@ -1,11 +1,11 @@
-import { Button, Row, Col, Card, Container, Accordion, ButtonToolbar, useAccordionToggle } from 'react-bootstrap';
-import Layout from '../components/layout/Layout';
-import { getPaginatedPosts } from '../lib/posts';
-import { getPageBySlug } from '../lib/page';
-import EmptyState from '../components/common/EmptyState';
-const Career = ({ posts, page }) => {
+import { Button, Row, Col, Card, Container, Accordion, ButtonToolbar, useAccordionButton } from 'react-bootstrap';
+import Layout from '../../components/layout/Layout';
+import { getPaginatedPosts } from '../../lib/posts';
+import { getPageBySlug } from '../../lib/page';
+import EmptyState from '../../components/common/EmptyState';
+const Career = ({ posts, page, menus, contactData }) => {
   const CustomToggle = ({ children, eventKey }) => {
-    const decoratedOnClick = useAccordionToggle(eventKey);
+    const decoratedOnClick = useAccordionButton(eventKey);
 
     return (
       <div className="accordion-toggle" onClick={decoratedOnClick}>
@@ -54,7 +54,7 @@ const Career = ({ posts, page }) => {
   };
 
   return (
-    <Layout title="Ажлын байр">
+    <Layout contactData={contactData} menus={menus} title="Ажлын байр">
       <div className="page career-page">
         <Container>
           <div className="branches-head">

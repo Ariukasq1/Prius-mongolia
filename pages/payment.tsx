@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Layout from '../components/layout/Layout';
-export default function Payment() {
+export default function Payment({ menus, contactData }) {
   const cartItem = () => {
     return (
       <div className="box cart-item flex">
@@ -17,7 +17,7 @@ export default function Payment() {
   };
 
   return (
-    <Layout title="Төлбөр">
+    <Layout menus={menus} contactData={contactData} title="Төлбөр">
       <div className="plain-page ">
         <Container>
           <div className="box payment-page">

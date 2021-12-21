@@ -6,7 +6,7 @@ import { getPageBySlug } from '../../lib/page';
 import Stepper from '../../components/common/Stepper';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-const SelectDate = ({ posts, page }) => {
+const SelectDate = ({ posts, page, menus, contactData }) => {
   const [map, setMap] = useState(false);
   const router = useRouter();
 
@@ -15,7 +15,7 @@ const SelectDate = ({ posts, page }) => {
   };
 
   return (
-    <Layout title="Засварын төрөл Өдөр сонгох">
+    <Layout contactData={contactData} menus={menus} title="Засварын төрөл Өдөр сонгох">
       <div className="select-date-page branches-page page">
         <Container>
           <div className="branches-head">

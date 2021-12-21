@@ -4,8 +4,14 @@ import Layout from '../../components/layout/Layout';
 import { getPaginatedPosts } from '../../lib/posts';
 import { getPageBySlug } from '../../lib/page';
 import EmptyState from '../../components/common/EmptyState';
-const Branches = ({ posts, page }) => {
+
+const Branches = ({ posts, page, menus, contactData }) => {
   const [map, setMap] = useState(false);
+
+  const getImages = (html) => {
+    const imgTags = html.match(/<img [^>]*src="[^"]*"[^>]*>/gm).map((x) => x.replace(/.*src="([^"]*)".*/, '$1'));
+    return imgTags.map((img) => <img src={img} />);
+  };
 
   const renderBranch = (post) => {
     const betweenHours = () => {
@@ -33,6 +39,7 @@ const Branches = ({ posts, page }) => {
             <div className="branch-content">
               <h6>{post.title}</h6>
               <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
+              <div className="images">{post.branches.images && getImages(post.branches.images)}</div>
             </div>
           </Col>
           <Col xs={12} sm={12} lg={3} className="border-left">
@@ -64,7 +71,7 @@ const Branches = ({ posts, page }) => {
   };
 
   return (
-    <Layout title="Салбарууд">
+    <Layout contactData={contactData} menus={menus} title="Салбарууд">
       <div className="branches-page page">
         <Container>
           <div className="branches-head">

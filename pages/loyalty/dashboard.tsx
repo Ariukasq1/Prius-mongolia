@@ -8,9 +8,9 @@ import Presents from '../../components/loyalty/dashboard/Presents';
 import TransactionHistory from '../../components/loyalty/dashboard/TransactionHistory';
 import MyShop from '../../components/loyalty/dashboard/MyShop';
 import MyAds from '../../components/loyalty/dashboard/MyAds';
-const Dashboard = () => {
+const Dashboard = ({ menus, contactData }) => {
   return (
-    <Layout title="Dashboard">
+    <Layout menus={menus} contactData={contactData} title="Dashboard">
       <Container>
         <div className="plain-page">
           <Scoring />
