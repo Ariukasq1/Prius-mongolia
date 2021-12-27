@@ -3,8 +3,11 @@ import { getAllPosts, getPostBySlug } from '../../lib/posts';
 import Layout from '../../components/layout/Layout';
 import { Container } from 'react-bootstrap';
 
-export default function Index({ post, menus, posts, contactData }) {
-  console.log(posts);
+export default function Index({ contactData, post, menus }) {
+  if (!post || post.length === 0) {
+    return null;
+  }
+
   return (
     <Layout menus={menus} title={post.title} contactData={contactData}>
       <div className="page single-post">
@@ -38,13 +41,7 @@ export async function getStaticProps({ params = {} as any } = {}) {
 
 export async function getStaticPaths() {
   const { posts } = await getAllPosts();
-  // const paths = posts
-  //   .filter(({ slug }) => typeof slug === 'string')
-  //   .map(({ slug }) => ({
-  //     params: {
-  //       slug,
-  //     },
-  //   }));
+
   return {
     // @ts-expect-error
     paths: posts.map((post) => `/posts/${post.slug}`) || [],
