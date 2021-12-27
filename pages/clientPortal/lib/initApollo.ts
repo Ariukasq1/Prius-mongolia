@@ -35,14 +35,14 @@ export default function initApollo(
   linkOptions,
   initialState
 ): ApolloClient<NormalizedCacheObject> {
-  if (!process.browser) {
-    return create(linkOptions, initialState);
-  }
+  // if (!process.browser) {
+  //   return create(linkOptions, initialState);
+  // }
 
-  // Reuse client on the client-side
-  if (!apolloMap[linkOptions.uri]) {
-    apolloMap[linkOptions.uri] = create(linkOptions, initialState);
-  }
+  // // Reuse client on the client-side
+  // if (!apolloMap[linkOptions.uri]) {
+  //   apolloMap[linkOptions.uri] = create(linkOptions, initialState);
+  // }
 
   return apolloMap[linkOptions.uri as string];
 }
