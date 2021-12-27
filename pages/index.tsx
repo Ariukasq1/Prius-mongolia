@@ -7,7 +7,6 @@ import Layout from '../components/layout/Layout';
 import { Container } from 'react-bootstrap';
 
 export default function Index({ posts, menus, contactData }) {
-  console.log(contactData);
   return (
     <Layout contactData={contactData} menus={menus} title="Нүүр хуудас">
       <Banner data={posts} />
@@ -22,6 +21,7 @@ export default function Index({ posts, menus, contactData }) {
 
 export async function getStaticProps({ params = {} as any } = {}) {
   const { posts, pagination } = await getPaginatedPosts(params && params.page, 'banner', 4);
+  
   return {
     props: {
       posts,

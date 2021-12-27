@@ -16,7 +16,7 @@ type Props = {
 const Header = ({ menu, contactData }: Props) => {
   const [user, setUser] = useState(true);
   const [modalShow, setModalShow] = useState(false);
-  console.log(contactData);
+
   return (
     <header>
       <FloatingMenu socialData={contactData && contactData.contact} />

@@ -31,6 +31,7 @@ export default function Index({ contactData, post, menus }) {
 export async function getStaticProps({ params = {} as any } = {}) {
   const { post } = await getPostBySlug(params.slug);
   const { posts } = await getAllPosts();
+
   return {
     props: {
       post,
@@ -41,7 +42,7 @@ export async function getStaticProps({ params = {} as any } = {}) {
 
 export async function getStaticPaths() {
   const { posts } = await getAllPosts();
-
+  
   return {
     // @ts-expect-error
     paths: posts.map((post) => `/posts/${post.slug}`) || [],

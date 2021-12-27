@@ -23,7 +23,7 @@ function MyApp({ Component, apolloClient, page, pageProps, apiClient, menus, rou
     contactData: page,
     ...pageProps,
   };
-  console.log(page);
+
   return (
     <ApiApolloClientContext.Provider value={apiClient}>
       <ApolloProvider client={apolloClient}>
