@@ -4,6 +4,10 @@ import Layout from '../../components/layout/Layout';
 import { Container } from 'react-bootstrap';
 
 export default function Index({ post, menus }) {
+  if(!post || post.length === 0) {
+    return null;
+  }
+  
   return (
     <Layout menus={menus} title={post.title}>
       <div className="page single-post">

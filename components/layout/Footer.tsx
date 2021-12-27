@@ -11,6 +11,8 @@ type Props = {
 };
 
 const Footer = ({ aboutMenu, footerMenu, linkMenu, contactData }: Props) => {
+  const { address, email, facebook } = contactData && contactData.contact || {} as any;
+
   return (
     <footer>
       <Container>
@@ -23,10 +25,10 @@ const Footer = ({ aboutMenu, footerMenu, linkMenu, contactData }: Props) => {
               <div className="contact">
                 <ul>
                   <li className="flex flex-v-center">
-                    <i className="fa-solid fa-location-dot"></i> <span>{contactData.contact.address}</span>
+                    <i className="fa-solid fa-location-dot"></i> <span>{address}</span>
                   </li>
                   <li className="flex flex-v-center">
-                    <i className="fa-solid fa-envelope-open"></i> <a href={`mail:${contactData.contact.email}`}>{contactData.contact.email}</a>
+                    <i className="fa-solid fa-envelope-open"></i> <a href={`mail:${email}`}>{email}</a>
                   </li>
                   <li className="flex flex-v-center">
                     <i className="fa-solid fa-globe"></i>{' '}
@@ -36,8 +38,8 @@ const Footer = ({ aboutMenu, footerMenu, linkMenu, contactData }: Props) => {
                   </li>
                 </ul>
                 <div className="social flex">
-                  {contactData.contact.facebook && (
-                    <a target="_blank" href={contactData.contact.facebook}>
+                  {facebook && (
+                    <a target="_blank" href={facebook}>
                       <i className="fa-brands fa-facebook"></i>
                     </a>
                   )}
@@ -59,7 +61,7 @@ const Footer = ({ aboutMenu, footerMenu, linkMenu, contactData }: Props) => {
               <div className="footer-menu">
                 <h5>{aboutMenu.name}</h5>
                 <ul>
-                  {aboutMenu.menuItems.length > 0 &&
+                  {(aboutMenu.menuItems || []).length !== 0 &&
                     aboutMenu.menuItems.map((item) => (
                       <li key={item.id}>
                         <Link href={item.path}>{item.label}</Link>
@@ -74,7 +76,7 @@ const Footer = ({ aboutMenu, footerMenu, linkMenu, contactData }: Props) => {
               <div className="footer-menu">
                 <h5>{footerMenu.name}</h5>
                 <ul>
-                  {footerMenu.menuItems.length > 0 &&
+                  {(footerMenu.menuItems || []).length !== 0 &&
                     footerMenu.menuItems.map((item) => (
                       <li key={item.id}>
                         <Link href={item.path}>{item.label}</Link>
@@ -89,7 +91,7 @@ const Footer = ({ aboutMenu, footerMenu, linkMenu, contactData }: Props) => {
               <div className="footer-menu">
                 <h5>{linkMenu.name}</h5>
                 <ul>
-                  {linkMenu.menuItems.length > 0 &&
+                  {(linkMenu.menuItems || []).length !== 0 &&
                     linkMenu.menuItems.map((item) => (
                       <li key={item.id}>
                         <Link href={item.path}>{item.label}</Link>
