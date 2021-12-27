@@ -1,0 +1,13 @@
+$darkGrey: #616e7c;
+$lightGrey: #f5f5f5;
+$dark: #1f2933;
+$green: #009300;
+$lightGreen: rgba(0, 147, 0, 0.12);
+body {
+  background-color: $lightGrey;
+}
+
+@import 'default';
+@import 'layout';
+@import 'components';
+@import 'mobile';
