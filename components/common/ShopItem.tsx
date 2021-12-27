@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import React, { useState } from 'react';
 import { Button, ButtonToolbar, Col, Row } from 'react-bootstrap';
 import { InputNumber } from './InputNumber';
@@ -10,7 +9,7 @@ export const ShopItem = (props) => {
     return (
       <div className="shop-item my-item common-item">
         <div className="thumbnail">
-          <Image className="product-thumbnail" width={'auto'} height={100} src="/images/product.png" />
+          <div className="product-thumbnail thumbnail" style={{ background: `url(/images/product.png)` }}></div>
         </div>
         <div className="price">
           <span className="main">Үнэ: 18,400₮</span>
@@ -30,7 +29,7 @@ export const ShopItem = (props) => {
     return (
       <div className="shop-item my-item">
         <div className="thumbnail">
-          <Image className="product-thumbnail" width={'auto'} height={100} src="/images/product.png" />
+          <div className="product-thumbnail small thumbnail" style={{ background: `url(/images/product.png)` }}></div>
         </div>
         <div className="price">
           <span className="main">Үнэ: 18,400₮</span>
@@ -53,7 +52,7 @@ export const ShopItem = (props) => {
       <div className="shop-item user-item">
         <div className="thumbnail">
           <span className="dark ribbon">VIP</span>
-          <Image className="product-thumbnail" width={'auto'} height={200} src="/images/product.png" />
+          <div className="product-thumbnail thumbnail" style={{ background: `url(/images/product.png)` }}></div>
         </div>
         <div className="price">
           <span className="main">Үнэ: 18,400₮</span>
@@ -70,7 +69,7 @@ export const ShopItem = (props) => {
     <div className="shop-item">
       <div className="thumbnail" onClick={() => setModalShow(!modalShow)}>
         <span className="green ribbon">Pruis Center</span>
-        <Image className="product-thumbnail" width={'auto'} height={200} src="/images/product.png" />
+        <div className="product-thumbnail thumbnail" style={{ background: `url(/images/product.png)` }}></div>
       </div>
       <div className="price">
         <span className="main">Үнэ: 18,400₮</span>
@@ -96,7 +95,7 @@ export const ShopItem = (props) => {
             <Row>
               <Col lg={8} md={12}>
                 <div className="images">
-                  <Image className="product-thumbnail" width={'auto'} height={200} src="/images/product.png" />
+                  <div className="product-thumbnail thumbnail" style={{ background: `url(/images/product.png)` }}></div>
                 </div>
               </Col>
               <Col lg={4} md={12}>

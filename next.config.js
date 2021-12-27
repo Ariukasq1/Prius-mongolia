@@ -1,17 +1,18 @@
-require("dotenv").config();
-const webpack = require("webpack");
+require('dotenv').config();
+const webpack = require('webpack');
 
 module.exports = {
   images: {
-    domains: ["prius.nmma.co"],
+    domains: ['prius.nmma.co'],
+    loader: 'imgix',
   },
   webpack(config, { isServer }) {
     // Fixes npm packages that depend on `fs` module
     if (!isServer) {
       config.node = {
-        fs: "empty",
-        net: "empty",
-        tls: "empty",
+        fs: 'empty',
+        net: 'empty',
+        tls: 'empty',
       };
     }
 
@@ -21,7 +22,7 @@ module.exports = {
         issuer: {
           test: /\.(js|ts)x?$/,
         },
-        use: ["@svgr/webpack"],
+        use: ['@svgr/webpack'],
       });
 
     return config;

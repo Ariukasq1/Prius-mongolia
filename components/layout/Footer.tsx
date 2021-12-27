@@ -1,6 +1,5 @@
 import react from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import Image from 'next/image';
 import Link from 'next/link';
 
 type Props = {
@@ -17,7 +16,7 @@ const Footer = ({ aboutMenu, footerMenu, linkMenu, contactData }: Props) => {
         <Row>
           <Col xs={12} lg={3} md={6}>
             <Link href="/">
-              <Image className="footer-logo" alt="logo" src="/images/logo.png" width={215} height={85} />
+              <img className="footer-logo" alt="logo" src="/images/logo.png" width={215} height={85} />
             </Link>
             {contactData && (
               <div className="contact">

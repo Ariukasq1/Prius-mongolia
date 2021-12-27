@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import TopBar from './TopBar';
-import Image from 'next/image';
 import Modal from '../common/Modal';
 import Button from 'react-bootstrap/Button';
 import Link from 'next/link';
@@ -17,7 +16,7 @@ type Props = {
 const Header = ({ menu, contactData }: Props) => {
   const [user, setUser] = useState(true);
   const [modalShow, setModalShow] = useState(false);
-
+  console.log(contactData);
   return (
     <header>
       <FloatingMenu socialData={contactData && contactData.contact} />
@@ -26,7 +25,7 @@ const Header = ({ menu, contactData }: Props) => {
         <div className="logo center main-col">
           <Link href="/">
             <a>
-              <Image className="header-logo" alt="logo" src="/images/logo.png" width={215} height={85} />
+              <img className="header-logo" alt="logo" src="/images/logo.png" width={215} height={85} />
             </a>
           </Link>
         </div>

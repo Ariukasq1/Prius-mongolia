@@ -110,7 +110,12 @@
   .thumbnail {
     cursor: pointer;
     .product-thumbnail {
+      height: 200px;
       border-radius: 12px;
+      margin-bottom: 0.5rem;
+      &.small {
+        height: 100px;
+      }
     }
     .ribbon {
       position: absolute;

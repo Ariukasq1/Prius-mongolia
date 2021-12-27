@@ -76,6 +76,9 @@
   }
   .logo {
     flex: 2 0;
+    .header-logo {
+      height: auto;
+    }
   }
   .main-search {
     flex: 12 0;
