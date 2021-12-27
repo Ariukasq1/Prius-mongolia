@@ -1,8 +1,8 @@
 import React from "react";
-import { SearchContainer } from "../../../modules/styles/main";
-import Icon from "../../../modules/common/Icon";
-import Modal from "../../../modules/common/Modal";
-import Button from "../../../modules/common/Button";
+import { SearchContainer } from "../../styles/main";
+import Icon from "../../common/Icon";
+import Modal from "../../common/Modal";
+import Button from "../../common/Button";
 import TaskForm from "../containers/Form";
 import { HeaderWrapper } from "../../styles/main";
 

@@ -32,16 +32,16 @@ export async function getStaticProps({ params = {} as any } = {}) {
   };
 }
 
-export async function getStaticPaths() {
-  const { posts } = await getAllPosts();
-  const pagesCount = await getPagesCount(posts);
+// export async function getStaticPaths() {
+//   const { posts } = await getAllPosts();
+//   const pagesCount = await getPagesCount(posts);
 
-  const paths = [...new Array(pagesCount)].map((_, i) => {
-    return { params: { page: String(i + 1) } };
-  });
+//   const paths = [...new Array(pagesCount)].map((_, i) => {
+//     return { params: { page: String(i + 1) } };
+//   });
 
-  return {
-    paths,
-    fallback: false,
-  };
-}
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// }
