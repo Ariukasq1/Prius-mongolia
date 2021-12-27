@@ -23,7 +23,7 @@ const TopBar = ({ menu }: Props) => {
         {menu &&
           menu.menuItems.map((item) => (
             <Link key={item.id} href={item.path}>
-              <a className={router.pathname.includes(item.path) && 'active'}>{item.label}</a>
+              <a className={router.pathname.includes(item.path) ? 'active' : undefined}>{item.label}</a>
             </Link>
           ))}
       </div>

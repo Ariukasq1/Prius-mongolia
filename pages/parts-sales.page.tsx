@@ -1,27 +1,25 @@
 import React from 'react';
-import Banner from '../components/Banner';
 import ProductsRow from '../components/ProductsRow';
 import CommonAds from '../components/CommonAds';
-import { getAllPosts, getPagesCount, getPaginatedPosts } from '../lib/posts';
+import { getPaginatedPosts } from '../lib/posts';
 import Layout from '../components/layout/Layout';
 import { Container } from 'react-bootstrap';
 
-export default function Index({ posts, menus, contactData }) {
+export default function Index({ menus, contactData }) {
   return (
-    <Layout contactData={contactData} menus={menus} title="Нүүр хуудас">
-      <Banner data={posts} />
-      <ProductsRow title="Баталгаат сэлбэг худалдаа" />
-      <ProductsRow title="Танд хэрэгтэй зар" type="user" />
-      <Container>
-        <CommonAds />
-      </Container>
+    <Layout contactData={contactData} menus={menus} title="Баталгаат сэлбэг худалдаа">
+      <div className="plain-page">
+        <ProductsRow title="Онцолсон зар" />
+        <Container>
+          <CommonAds />
+        </Container>
+      </div>
     </Layout>
   );
 }
 
 export async function getStaticProps({ params = {} as any } = {}) {
   const { posts, pagination } = await getPaginatedPosts(params && params.page, 'banner', 4);
-  
   return {
     props: {
       posts,

@@ -2,6 +2,7 @@ require('dotenv').config();
 const webpack = require('webpack');
 
 module.exports = {
+  pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
   images: {
     domains: ['prius.nmma.co'],
     loader: 'imgix',

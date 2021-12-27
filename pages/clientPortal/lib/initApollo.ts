@@ -1,9 +1,4 @@
-import {
-  ApolloClient,
-  createHttpLink,
-  InMemoryCache,
-  NormalizedCacheObject,
-} from '@apollo/client';
+import { ApolloClient, createHttpLink, InMemoryCache, NormalizedCacheObject } from '@apollo/client';
 
 interface ApolloServer extends NodeJS.Global {
   fetch: typeof fetch;
@@ -16,10 +11,7 @@ if (!process.browser) {
 
 const apolloMap = {};
 
-function create(
-  linkOptions: object,
-  initialState: NormalizedCacheObject
-): ApolloClient<NormalizedCacheObject> {
+function create(linkOptions: object, initialState: NormalizedCacheObject): ApolloClient<NormalizedCacheObject> {
   const httpLink = createHttpLink(linkOptions);
 
   // Check out https://github.com/zeit/next.js/pull/4611 if you want to use the AWSAppSyncClient
@@ -31,18 +23,15 @@ function create(
   });
 }
 
-export default function initApollo(
-  linkOptions,
-  initialState
-): ApolloClient<NormalizedCacheObject> {
-  // if (!process.browser) {
-  //   return create(linkOptions, initialState);
-  // }
+export default function initApollo(linkOptions, initialState): ApolloClient<NormalizedCacheObject> {
+  if (!process.browser) {
+    return create(linkOptions, initialState);
+  }
 
-  // // Reuse client on the client-side
-  // if (!apolloMap[linkOptions.uri]) {
-  //   apolloMap[linkOptions.uri] = create(linkOptions, initialState);
-  // }
+  // Reuse client on the client-side
+  if (!apolloMap[linkOptions.uri]) {
+    apolloMap[linkOptions.uri] = create(linkOptions, initialState);
+  }
 
   return apolloMap[linkOptions.uri as string];
 }
