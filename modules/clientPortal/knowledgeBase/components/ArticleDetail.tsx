@@ -42,9 +42,9 @@ function ArticleDetail({ loading, article, category, topic }: Props) {
   };
 
   const renderTags = () => {
-    const nodes = createDom().getElementsByTagName("h2") as any;
+    const tags = typeof window !== 'undefined' && document.getElementsByTagName("h2") as any || {} as any;
 
-    if (nodes.length === 0) {
+    if (!tags || (Object.keys(tags)).length === 0) {
       return null;
     }
 
@@ -66,11 +66,11 @@ function ArticleDetail({ loading, article, category, topic }: Props) {
       });
     };
 
-    const h2Array = document.getElementsByTagName("h2") as any;
-    addId([...nodes], true);
+    const h2Array = typeof window !== 'undefined' && document.getElementsByTagName("h2") as any || {} as any;
+    addId([...tags || {} as any], true);
     addId([...h2Array], false);
 
-    if (tagged.length === 0) {
+    if (!tagged || tagged.length === 0) {
       return null;
     }
 
@@ -91,9 +91,9 @@ function ArticleDetail({ loading, article, category, topic }: Props) {
   };
 
   const showImageModal = (e) => {
-    const img = e.target.closest("img") as any;
-    const modalImg = document.getElementById("modal-content") as any;
-    const modal = document.getElementById("modal") as any;
+    const img = e.target.closest("img") as any || {};
+    const modalImg = typeof window !== 'undefined' && document.getElementById("modal-content") as any || {};
+    const modal = typeof window !== 'undefined' && document.getElementById("modal") as any || {};
 
     if (img && e.currentTarget.contains(img)) {
       modalImg.src = img.src;
@@ -103,7 +103,7 @@ function ArticleDetail({ loading, article, category, topic }: Props) {
   };
 
   const handleModal = () => {
-    const modal = document.getElementById("modal");
+    const modal = typeof window !== 'undefined' && document.getElementById("modal");
     modal.style.visibility = "hidden";
   };
 

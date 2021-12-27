@@ -25,7 +25,7 @@ export const isValidUsername = (username: string) => {
 };
 
 const getSelector = (name: string) => {
-  return document.querySelector(`[name='${name}']`) as any;
+  return typeof window !== 'undefined' && document.querySelector(`[name='${name}']`) as any;
 };
 
 export const getValue = (name) => {

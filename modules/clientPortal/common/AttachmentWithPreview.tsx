@@ -129,11 +129,11 @@ class AttachmentWithPreview extends React.Component<Props, State> {
   state = { visible: false, currentIndex: 0 };
 
   componentDidMount() {
-    document.addEventListener("keydown", this.handleKeydown);
+    typeof window !== 'undefined' && document.addEventListener("keydown", this.handleKeydown);
   }
 
   componentWillUnmount() {
-    document.removeEventListener("keydown", this.handleKeydown);
+    typeof window !== 'undefined' && document.removeEventListener("keydown", this.handleKeydown);
   }
 
   handleKeydown = (e) => {

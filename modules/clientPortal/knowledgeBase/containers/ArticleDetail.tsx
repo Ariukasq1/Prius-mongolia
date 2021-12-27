@@ -16,24 +16,24 @@ function ArticleDetailContainer({
 }: Props) {
   const apiClient = useContext(ApiApolloClientContext);
 
-  const { loading, data = {} as any } = id
+  const { loading, data = {} as any } = id || {} as any
     ? useQuery(gql(articleDetailQuery), {
-        variables: { _id: id },
+        variables: { _id: id || '' },
         client: apiClient,
         skip: !id,
       })
     : { loading: true };
 
   const { data: catData = {} as any } =
-    catId &&
+    catId || {} as any &&
     useQuery(gql(categoryDetailQuery), {
-      variables: { _id: catId },
+      variables: { _id: catId || '' },
       client: apiClient,
       skip: !catId,
     });
 
-  const article = data.knowledgeBaseArticleDetail || {};
-  const category = catData.knowledgeBaseCategoryDetail || {};
+  const article = data && data.knowledgeBaseArticleDetail || {};
+  const category = catData && catData.knowledgeBaseCategoryDetail || {};
 
   const updatedProps = {
     ...props,

@@ -4,7 +4,7 @@ import ConfirmDialog from '../../common/ConfirmDialog';
 
 const createConfirmation = (unmountDelay = 1000) => {
   return (props) => {
-    const wrapper = document.body.appendChild(document.createElement('div'));
+    const wrapper = typeof window !== 'undefined' && document.body.appendChild(typeof window !== 'undefined' && document.createElement('div'));
 
     function dismiss() {
       if (props.options.beforeDismiss) {

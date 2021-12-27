@@ -63,7 +63,7 @@ class Form extends React.Component<Props, State> {
   };
 
   getSelector = (name: string) => {
-    return document.querySelector(`#${this.formId} [name='${name}']`) as any;
+    return typeof window !== 'undefined' && document.querySelector(`#${this.formId} [name='${name}']`) as any;
   };
 
   getValue = child => {

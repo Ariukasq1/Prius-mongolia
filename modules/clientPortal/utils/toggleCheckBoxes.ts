@@ -1,5 +1,5 @@
 export default (containerId: string, checked: boolean) => {
-  const container = document.getElementById(containerId);
+  const container = typeof window !== 'undefined' && document.getElementById(containerId);
 
   if (!container) {
     return;

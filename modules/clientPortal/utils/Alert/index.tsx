@@ -30,24 +30,24 @@ const createAlert = (type: string, text: string, time?: number) => {
   timeout = setTimeout(() => {
     alertcount = 0;
 
-    if (document.getElementById('alert-container')) {
-      const container = document.getElementById('alert-container');
+    if (typeof window !== 'undefined' && document.getElementById('alert-container')) {
+      const container = typeof window !== 'undefined' && document.getElementById('alert-container');
 
       if (container) {
-        document.body.removeChild(container);
+        typeof window !== 'undefined' && document.body.removeChild(container);
       }
     }
   }, time || 3500);
 
-  if (!document.getElementById('alert-container')) {
-    const popup = document.createElement('div');
+  if (document.getElementById('alert-container')) {
+    const popup = typeof window !== 'undefined' && document.createElement('div');
     popup.setAttribute('id', 'alert-container');
-    document.body.appendChild(popup);
+    typeof window !== 'undefined' && document.body.appendChild(popup);
 
     ReactDOM.render(<AlertWrapper />, popup);
   }
 
-  const wrapper = document.getElementById('alert-wrapper');
+  const wrapper = typeof window !== 'undefined' && document.getElementById('alert-wrapper');
 
   ReactDOM.render(
     <AlertStyled key={alertcount} type={type}>

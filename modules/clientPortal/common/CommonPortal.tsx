@@ -7,15 +7,15 @@ class CommonPortal extends React.Component<{ children: React.ReactNode }> {
   constructor(props) {
     super(props);
 
-    this.el = document.createElement('div');
+    this.el = typeof window !== 'undefined' && document.createElement('div');
   }
 
   componentDidMount() {
-    document.body.appendChild(this.el);
+    typeof window !== 'undefined' && document.body.appendChild(this.el);
   }
 
   componentWillUnmount() {
-    document.body.removeChild(this.el);
+    typeof window !== 'undefined' && document.body.removeChild(this.el);
   }
 
   render() {

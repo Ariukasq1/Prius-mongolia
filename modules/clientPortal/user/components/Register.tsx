@@ -24,7 +24,7 @@ function Register({
     e.isDefaultPrevented();
   };
 
-  const { values, isSubmitted } = formProps;
+  const { values = {} as any, isSubmitted } = formProps || {} as any;
 
   return (
     <>

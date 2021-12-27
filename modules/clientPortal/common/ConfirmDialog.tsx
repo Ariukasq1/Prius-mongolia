@@ -136,11 +136,11 @@ class ConfirmDialog extends React.Component<Props, State> {
   };
 
   componentDidMount() {
-    document.addEventListener('keydown', this.handleKeydown);
+    typeof window !== 'undefined' && document.addEventListener('keydown', this.handleKeydown);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKeydown);
+    typeof window !== 'undefined' && document.removeEventListener('keydown', this.handleKeydown);
   }
 
   handleChange = (e) => {
